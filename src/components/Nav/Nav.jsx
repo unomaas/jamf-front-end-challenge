@@ -1,26 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Grid } from '@mui/material';
+
 
 function Nav() {
-  const user = useSelector((store) => store.user);
 
-  let loginLinkData = {
-    path: '/login',
-    text: 'Login / Register',
-  };
-
-  if (user.id != null) {
-    loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
-  }
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
+      <span>
+        <h2 className="nav-title">Add new User Profile</h2>
+      </span>
     </div>
   );
 }
