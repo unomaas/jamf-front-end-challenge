@@ -1,12 +1,16 @@
-.ToggleButton-wrapper {
+.SideBar-wrapper {
   width: 25vw;
   min-width: 200px;
   height: 100vh;
   background-color: green;
   background-image: url("./side-background.png");
-  
 }
 
-.ToggleButton-content {
+.SideBar-content {
   height: 30vh;
 }
+
+/* .SideBar-buttons {
+  border: 0 !important;
+  text-align: left !important;
+} */

@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.css';
+import './Header.css';
 import { useSelector } from 'react-redux';
 import { Grid, Typography, Avatar } from '@mui/material';
 
 
-function Nav() {
+export default function Header() {
 
   return (
-    <div className="Nav-wrapper">
+    <div className="Header-wrapper">
 
       <Avatar
-        className="Nav-icon"
+        className="Header-icon"
         alt="Header Logo Icon"
         src="./images/icon.png"
       />
 
-      <Typography 
+      <Typography
+        className="Header-title"
         variant="h5"
-        className="Nav-header"
       >
         Add new User Profile
       </Typography>
@@ -26,6 +26,3 @@ function Nav() {
     </div>
   ); // End return
 } // End Nav()
-
-
-export default Nav;

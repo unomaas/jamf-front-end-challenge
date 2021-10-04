@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import { Grid } from '@mui/material';
-import ToggleButton from '../ToggleButton/ToggleButton';
-
+import SideBar from '../SideBar/SideBar';
 
 function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
@@ -13,7 +12,7 @@ function LandingPage() {
   return (
     <div className="LandingPage-wrapper">
 
-      <ToggleButton />
+      <SideBar />
       
       <Grid container spacing={0} className="ToggleButton">
         <Grid 
