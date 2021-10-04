@@ -1,5 +1,4 @@
-.nav {
-  /* flex box layout */
+/* .Nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,4 +14,30 @@
   color: #f2f2f2;
   padding-left: 10px;
   margin: 0;
+} */
+
+.test {
+  background-color: red;
+}
+
+.Nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  height: 6rem;
+  max-height: 6rem;
+  /* background-color: red; */
+  box-shadow: 0.15rem 0.25rem .25rem #d4d4d4;
+}
+
+.Nav-icon {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.Nav-header {
+  color: rgb(109, 109, 137);
 }

@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-import AboutPage from '../AboutPage/AboutPage';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css';
 
