@@ -16,19 +16,21 @@
   margin: 0;
 } */
 
-.test {
+/* .test {
   background-color: red;
-}
+} */
 
 .Nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  height: 6rem;
-  max-height: 6rem;
+  /* height: 5.5rem; */
+  max-height: 5.5rem;
   /* background-color: red; */
   box-shadow: 0.15rem 0.25rem .25rem #d4d4d4;
+  position: relative;
+  /* flex-shrink: 1; */
 }
 
 .Nav-icon {

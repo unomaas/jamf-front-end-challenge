@@ -1,0 +1,12 @@
+.ToggleButton-wrapper {
+  width: 25vw;
+  min-width: 200px;
+  height: 100vh;
+  background-color: green;
+  background-image: url("./side-background.png");
+  
+}
+
+.ToggleButton-content {
+  height: 30vh;
+}
