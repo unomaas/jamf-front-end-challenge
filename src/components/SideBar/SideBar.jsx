@@ -10,54 +10,55 @@ export default function SideBar() {
   // const classes = useStyles();
 
   return (
-    
 
-        <Grid
-          container
-          spacing={3}
-          className="SideBar-wrapper"
+    <Grid
+      container
+      xs={3}
+      className="SideBar-wrapper"
+    >
+
+      <Grid item xs={12} className="SideBar-content">
+        <Typography
+          className="SideBar-text"
+          variant="p"
         >
+          <CircleIcon
+            className="SideBar-circle"
+            color="success"
+          />
+          Add login details
+        </Typography>
 
-          <Grid item xs={12}>
-            <Typography
-              className="SideBar-text"
-              variant="p"
-            >
-              <CircleIcon
-                className="SideBar-circle"
-                color="success"
-              />
-              Add login details
-            </Typography>
-          </Grid>
+        <br /> <br />
 
-          <Grid item xs={12}>
-            <Typography
-              className="SideBar-text"
-              variant="p"
-            >
-              <CircleIcon
-                className="SideBar-circle"
-                color="action"
-              />
-              Select the user group
-            </Typography>
-          </Grid>
+        <Typography
+          className="SideBar-text"
+          variant="p"
+        >
+          <CircleIcon
+            className="SideBar-circle"
+            color="action"
+          />
+          Select the user group
+        </Typography>
 
-          <Grid item xs={12}>
-            <Typography
-              className="SideBar-text"
-              variant="p"
-            >
-              <CircleIcon
-                className="SideBar-circle"
-                color="action"
-              />
-              Submit the form
-            </Typography>
-          </Grid>
+        <br /> <br />
 
-          {/* <Stack spacing={2} alignItems="center" justifyContent="center">
+        <Typography
+          className="SideBar-text"
+          variant="p"
+        >
+          <CircleIcon
+            className="SideBar-circle"
+            color="action"
+          />
+          Submit the form
+        </Typography>
+      </Grid>
+
+
+
+      {/* <Stack spacing={2} alignItems="center" justifyContent="center">
 
             <Typography
               variant="p"
@@ -95,7 +96,7 @@ export default function SideBar() {
             </Typography>
 
           </Stack> */}
-        </Grid>
+    </Grid>
 
   )
 }

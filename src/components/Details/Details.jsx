@@ -9,12 +9,14 @@ function Details() {
 
 
   return (
-    <Grid container className="Details-wrapper">
+    <Grid container xs={9} className="Details-wrapper" >
+
       <Grid
-        item xs={12}
+        item 
+        // xs={12}
         className="Details-content"
       >
-
+        <h4>Fuck this</h4>
 
         <TextField
           required
@@ -30,13 +32,6 @@ function Details() {
         // value={estimateData.square_feet}
 
         />
-
-
-
-
-        <p>Test test test</p>
-        <p>Test test test</p>
-        <p>Test test test</p>
       </Grid>
     </Grid>
   );
