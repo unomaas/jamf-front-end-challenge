@@ -11,16 +11,16 @@
   padding-top: 2.5em;
 }
 
+.SideBar-circle {
+  margin-right: 1.2em !important;
+  margin-left: 1.7em !important;
+  vertical-align: middle;
+  font-size: .85em !important;
+}
+
 .SideBar-text {
   font-size: 1.05em;
   font-weight: 450;
 
-}
-
-.SideBar-circle {
-  margin-right: 1.2em;
-  margin-left: 1.7em;
-  vertical-align: middle;
-  font-size: .85em !important;
 }
 

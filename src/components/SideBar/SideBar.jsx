@@ -15,21 +15,25 @@ export default function SideBar() {
       <div className="SideBar-content">
         <Grid
           container
-          direction="column"
           spacing={3}
+          alignItems="center"
         >
 
-          <Grid item xs={12}>
-            <Typography
-              className="SideBar-text"
-              variant="p"
-            >
+          <Grid container direction="row">
+            <Grid item xs={3} justifyContent="flex-end">
               <CircleIcon
                 className="SideBar-circle"
                 color="success"
               />
-              Add login details
-            </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography
+                className="SideBar-text"
+                variant="p"
+              >
+                Add login details
+              </Typography>
+            </Grid>
           </Grid>
 
           <Grid item xs={12}>

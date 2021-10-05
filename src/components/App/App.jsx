@@ -21,31 +21,25 @@ function App() {
 
         <Header />
 
-        <Grid container>
+        <SideBar />
 
-          <Grid item>
-            <SideBar />
-          </Grid>
+        <Switch>
+          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+          <Redirect exact from="/" to="/details" />
 
-          <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/details" />
+          <Route
+            exact
+            path="/details"
+          >
+            <Details />
+          </Route>
 
+          {/* If none of the other routes matched, we will show a 404. */}
+          <Route>
+            <h1>404 - Please go back and try a different URL.</h1>
+          </Route>
+        </Switch>
 
-            <Route
-              exact
-              path="/details"
-            >
-              <Details />
-            </Route>
-
-            {/* If none of the other routes matched, we will show a 404. */}
-            <Route>
-              <h1>404 - Please go back and try a different page.</h1>
-            </Route>
-          </Switch>
-
-        </Grid>
 
       </div>
     </Router>
