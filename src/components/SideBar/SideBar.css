@@ -1,37 +1,26 @@
 .SideBar-wrapper {
   width: 25vw;
   min-width: 240px;
-  max-width: 350px;
+  max-width: 300px;
   height: 100vh;
   background-image: url("./side-background.png");
 }
 
 .SideBar-content {
   height: 30vh;
-  /* margin-left: 1.5rem; */
   padding-top: 2.5em;
 }
-
-/* .SideBar-buttons {
-  border: 0 !important;
-  text-align: left !important;
-} */
 
 .SideBar-text {
   font-size: 1.05em;
   font-weight: 450;
-  /* height: 2em; */
-  /* display: flex;
-  vertical-align: middle; */
-  /* padding-top: 5px; */
+
 }
 
 .SideBar-circle {
-  /* margin: 0 .75em 0 1.25em; */
-  margin-right: 1em;
-  margin-left: 1.5em;
+  margin-right: 1.2em;
+  margin-left: 1.7em;
   vertical-align: middle;
   font-size: .85em !important;
-  /* padding-left: 1em; */
 }
 

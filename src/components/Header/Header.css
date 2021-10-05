@@ -1,43 +1,18 @@
-/* .Nav-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
-}
-
-
-.nav-title {
-  font-size: 1.5em;
-  color: #f2f2f2;
-  padding-left: 10px;
-  margin: 0;
-} */
-
-/* .test {
-  background-color: red;
-} */
-
 .Header-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  /* height: 5.5em; */
   max-height: 5.5em;
-  /* background-color: red; */
   box-shadow: 0.25em 0.25em .25em #d4d4d4;
   position: relative;
-  /* flex-shrink: 1; */
 }
 
 .Header-icon {
   width: 100%;
   display: flex;
   height: 100%;
-  padding: 1.5em;
+  padding: 1em;
 }
 
 .Header-title {

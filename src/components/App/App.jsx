@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from '../Header/Header';
-import LandingPage from '../LandingPage/LandingPage';
+import Details from '../Details/Details';
 import './App.css';
-import { ThemeProvider } from '@mui/material';
-import { theme } from '../MuiStyling/MuiStyling';
+import { Grid } from '@mui/material';
+import SideBar from '../SideBar/SideBar';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -15,21 +16,27 @@ function App() {
   // }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <div>
+    <Router>
+      <div>
 
-          <Header />
+        <Header />
+
+        <Grid container>
+
+          <Grid item>
+            <SideBar />
+          </Grid>
 
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/details" />
 
+
             <Route
               exact
               path="/details"
             >
-              <LandingPage />
+              <Details />
             </Route>
 
             {/* If none of the other routes matched, we will show a 404. */}
@@ -38,9 +45,10 @@ function App() {
             </Route>
           </Switch>
 
-        </div>
-      </Router>
-    </ThemeProvider >
+        </Grid>
+
+      </div>
+    </Router>
   );
 }
 
