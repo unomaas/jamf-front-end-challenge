@@ -1,6 +1,6 @@
 .SideBar-wrapper {
   width: 25vw;
-  min-width: 250px;
+  min-width: 240px;
   max-width: 350px;
   height: 100vh;
   background-image: url("./side-background.png");
@@ -9,7 +9,7 @@
 .SideBar-content {
   height: 30vh;
   /* margin-left: 1.5rem; */
-  padding-top: 2.5rem;
+  padding-top: 2.5em;
 }
 
 /* .SideBar-buttons {
@@ -17,7 +17,21 @@
   text-align: left !important;
 } */
 
-.SideBar-circle {
-  margin: 0 1.25rem;
-  padding-left: 1rem;
+.SideBar-text {
+  font-size: 1.05em;
+  font-weight: 450;
+  /* height: 2em; */
+  /* display: flex;
+  vertical-align: middle; */
+  /* padding-top: 5px; */
 }
+
+.SideBar-circle {
+  /* margin: 0 .75em 0 1.25em; */
+  margin-right: 1em;
+  margin-left: 1.5em;
+  vertical-align: middle;
+  font-size: .85em !important;
+  /* padding-left: 1em; */
+}
+

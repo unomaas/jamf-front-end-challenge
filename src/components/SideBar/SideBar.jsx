@@ -13,33 +13,90 @@ export default function SideBar() {
     <div className="SideBar-wrapper">
 
       <div className="SideBar-content">
-        <Stack spacing={2}>
+        <Grid
+          container
+          direction="column"
+          spacing={3}
+        >
 
-          <Typography variant="p">
-            <CircleIcon
-              color="success"
-              className="SideBar-circle"
-            />
-            Add login details
-          </Typography>
+          <Grid item xs={12}>
+            <Typography
+              className="SideBar-text"
+              variant="p"
+            >
+              <CircleIcon
+                className="SideBar-circle"
+                color="success"
+              />
+              Add login details
+            </Typography>
+          </Grid>
 
-          <Typography variant="p">
-            <CircleIcon
-              color="action"
-              className="SideBar-circle"
-            />
-            Select the user group
-          </Typography>
+          <Grid item xs={12}>
+            <Typography
+              className="SideBar-text"
+              variant="p"
+            >
+              <CircleIcon
+                className="SideBar-circle"
+                color="action"
+              />
+              Select the user group
+            </Typography>
+          </Grid>
 
-          <Typography variant="p">
-            <CircleIcon
-              color="action"
-              className="SideBar-circle"
-            />
-            Add login details
-          </Typography>
+          <Grid item xs={12}>
+            <Typography
+              className="SideBar-text"
+              variant="p"
+            >
+              <CircleIcon
+                className="SideBar-circle"
+                color="action"
+              />
+              Submit the form
+            </Typography>
+          </Grid>
 
-        </Stack>
+          {/* <Stack spacing={2} alignItems="center" justifyContent="center">
+
+            <Typography
+              variant="p"
+              className="SideBar-text"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <CircleIcon
+                color="success"
+                className="SideBar-circle"
+              />
+              Add login details
+            </Typography>
+
+            <Typography
+              variant="p"
+              className="SideBar-text"
+            >
+              <CircleIcon
+                color="action"
+                className="SideBar-circle"
+              />
+              Select the user group
+            </Typography>
+
+            <Typography
+              variant="p"
+              className="SideBar-text"
+            >
+              <CircleIcon
+                color="action"
+                className="SideBar-circle"
+              />
+              Add login details
+            </Typography>
+
+          </Stack> */}
+        </Grid>
       </div>
 
       <div className="SideBar-icon">
