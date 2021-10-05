@@ -10,7 +10,7 @@
 }
 
 .SideBar-content {
-  /* height: 20px; */
+  /* height: 1px; */
   padding-top: 2.5em;
 }
 
@@ -27,3 +27,13 @@
 
 }
 
+.SideBar-image-wrapper {
+  /* margin-bottom: 15em !important; */
+}
+
+.SideBar-image {
+  min-width: 16em;
+  min-height: 16em;
+  /* overflow: hidden !important; */
+  z-index: 1;
+}

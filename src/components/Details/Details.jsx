@@ -11,7 +11,7 @@ function Details() {
   return (
     <Grid 
       container 
-      xs={10} 
+      xs={5} 
       className="Details-wrapper"
     >
       <Grid
@@ -21,7 +21,6 @@ function Details() {
       >
         <TextField
           required
-          // style={{width: '95%'}}
           fullWidth
         // onChange={event => handleChange('square_feet', event.target.value)}
         // required

@@ -1,5 +1,9 @@
 .Details-wrapper {
   /* margin: 0 !important; */
+  /* overflow: scroll; */
+  z-index: 2 !important;
+  background-color: white;
+  /* position: relative; */
 }
 
 .Details-content {

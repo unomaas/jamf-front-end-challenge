@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideBar.css';
-import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container, Avatar } from '@mui/material';
 import { theme } from '../MuiStyling/MuiStyling';
 // import { CircleIcon } from '@mui/icons-material';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -15,9 +15,14 @@ export default function SideBar() {
       container
       xs={1}
       className="SideBar-wrapper"
+      // direction="column"
     >
 
-      <Grid item xs={12} className="SideBar-content">
+      <Grid 
+        item 
+        xs={12} 
+        className="SideBar-content"
+      >
         <Typography
           className="SideBar-text"
           variant="p"
@@ -56,46 +61,18 @@ export default function SideBar() {
         </Typography>
       </Grid>
 
+      <Grid
+        item
+        xs={12}
+        className="SideBar-image-wrapper"
+      >
+        <Avatar
+          className="SideBar-image"
+          alt="Side Bar Logo Image"
+          src="./images/app-icon.png"
+        />
+      </Grid>
 
-
-      {/* <Stack spacing={2} alignItems="center" justifyContent="center">
-
-            <Typography
-              variant="p"
-              className="SideBar-text"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <CircleIcon
-                color="success"
-                className="SideBar-circle"
-              />
-              Add login details
-            </Typography>
-
-            <Typography
-              variant="p"
-              className="SideBar-text"
-            >
-              <CircleIcon
-                color="action"
-                className="SideBar-circle"
-              />
-              Select the user group
-            </Typography>
-
-            <Typography
-              variant="p"
-              className="SideBar-text"
-            >
-              <CircleIcon
-                color="action"
-                className="SideBar-circle"
-              />
-              Add login details
-            </Typography>
-
-          </Stack> */}
     </Grid>
 
   )
