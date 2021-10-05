@@ -1,7 +1,9 @@
 import React from 'react'
 import './SideBar.css';
-import { ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon } from '@mui/material';
 import { theme } from '../MuiStyling/MuiStyling';
+// import { CircleIcon } from '@mui/icons-material';
+import CircleIcon from '@mui/icons-material/Circle';
 
 
 export default function SideBar() {
@@ -11,27 +13,36 @@ export default function SideBar() {
     <div className="SideBar-wrapper">
 
       <div className="SideBar-content">
-        <ToggleButtonGroup
-          orientation="vertical"
-          fullWidth
-          exclusive
-        >
-          <ToggleButton 
-            color="primary"
-          >
+        <Stack spacing={2}>
+
+          <Typography variant="p">
+            <CircleIcon
+              color="success"
+              className="SideBar-circle"
+            />
             Add login details
-          </ToggleButton>
-          <ToggleButton className="SideBar-buttons">
+          </Typography>
+
+          <Typography variant="p">
+            <CircleIcon
+              color="action"
+              className="SideBar-circle"
+            />
             Select the user group
-          </ToggleButton >
-          <ToggleButton className="SideBar-buttons">
-            Submit the form
-          </ToggleButton>
-        </ToggleButtonGroup>
+          </Typography>
+
+          <Typography variant="p">
+            <CircleIcon
+              color="action"
+              className="SideBar-circle"
+            />
+            Add login details
+          </Typography>
+
+        </Stack>
       </div>
 
       <div className="SideBar-icon">
-
       </div>
 
     </div>
