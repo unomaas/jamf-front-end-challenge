@@ -9,18 +9,20 @@ function Details() {
 
 
   return (
-    <Grid container xs={9} className="Details-wrapper" >
-
+    <Grid 
+      container 
+      xs={10} 
+      className="Details-wrapper"
+    >
       <Grid
         item 
-        // xs={12}
+        xs={12}
         className="Details-content"
       >
-        <h4>Fuck this</h4>
-
         <TextField
           required
-
+          // style={{width: '95%'}}
+          fullWidth
         // onChange={event => handleChange('square_feet', event.target.value)}
         // required
         // type="number"

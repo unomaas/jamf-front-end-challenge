@@ -13,7 +13,7 @@ export default function SideBar() {
 
     <Grid
       container
-      xs={3}
+      xs={1}
       className="SideBar-wrapper"
     >
 
