@@ -16,7 +16,9 @@ export default function SideBar() {
           fullWidth
           exclusive
         >
-          <ToggleButton >
+          <ToggleButton 
+            color="primary"
+          >
             Add login details
           </ToggleButton>
           <ToggleButton className="SideBar-buttons">

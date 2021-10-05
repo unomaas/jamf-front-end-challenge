@@ -12,10 +12,15 @@ function LandingPage() {
   return (
     <div className="LandingPage-wrapper">
 
-      <SideBar />
-      
-      <Grid container spacing={0} className="ToggleButton">
-        <Grid 
+
+      <Grid container spacing={0}>
+
+        <Grid item>
+          <SideBar />
+
+        </Grid>
+
+        <Grid
           item
         >
           <p>Test test test</p>
