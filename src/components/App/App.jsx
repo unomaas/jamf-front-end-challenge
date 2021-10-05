@@ -17,7 +17,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <Grid container>
 
         <Header />
 
@@ -41,7 +41,7 @@ function App() {
         </Switch>
 
 
-      </div>
+      </Grid>
     </Router>
   );
 }

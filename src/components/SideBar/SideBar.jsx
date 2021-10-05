@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideBar.css';
-import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container } from '@mui/material';
 import { theme } from '../MuiStyling/MuiStyling';
 // import { CircleIcon } from '@mui/icons-material';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -10,30 +10,25 @@ export default function SideBar() {
   // const classes = useStyles();
 
   return (
-    <div className="SideBar-wrapper">
+    
 
-      <div className="SideBar-content">
         <Grid
           container
           spacing={3}
-          alignItems="center"
+          className="SideBar-wrapper"
         >
 
-          <Grid container direction="row">
-            <Grid item xs={3} justifyContent="flex-end">
+          <Grid item xs={12}>
+            <Typography
+              className="SideBar-text"
+              variant="p"
+            >
               <CircleIcon
                 className="SideBar-circle"
                 color="success"
               />
-            </Grid>
-            <Grid item xs={9}>
-              <Typography
-                className="SideBar-text"
-                variant="p"
-              >
-                Add login details
-              </Typography>
-            </Grid>
+              Add login details
+            </Typography>
           </Grid>
 
           <Grid item xs={12}>
@@ -101,11 +96,6 @@ export default function SideBar() {
 
           </Stack> */}
         </Grid>
-      </div>
 
-      <div className="SideBar-icon">
-      </div>
-
-    </div>
   )
 }

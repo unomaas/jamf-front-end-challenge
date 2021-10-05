@@ -9,16 +9,15 @@ function Details() {
 
 
   return (
-    <Grid container>
+    <Grid container className="Details-wrapper">
       <Grid
-        item xs={8}
+        item xs={12}
         className="Details-content"
       >
 
 
         <TextField
           required
-          fullWidth
 
         // onChange={event => handleChange('square_feet', event.target.value)}
         // required

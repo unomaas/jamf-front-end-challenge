@@ -4,6 +4,8 @@
   max-width: 300px;
   height: 100vh;
   background-image: url("./side-background.png");
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .SideBar-content {

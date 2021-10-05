@@ -8,7 +8,12 @@ import { Grid, Typography, Avatar } from '@mui/material';
 export default function Header() {
 
   return (
-    <div className="Header-wrapper">
+    <Grid 
+      container 
+      xs={12} 
+      alignItems="center" 
+      className="Header-wrapper"
+    >
 
       <Avatar
         className="Header-icon"
@@ -23,6 +28,6 @@ export default function Header() {
         Add new User Profile
       </Typography>
 
-    </div>
+    </Grid>
   ); // End return
 } // End Nav()
