@@ -11,7 +11,7 @@ function Details() {
   return (
     <Grid 
       container 
-      xs={5} 
+      xs={7} 
       className="Details-wrapper"
     >
       <Grid

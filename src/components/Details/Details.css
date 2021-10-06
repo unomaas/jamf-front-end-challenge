@@ -1,7 +1,7 @@
 .Details-wrapper {
   /* margin: 0 !important; */
   /* overflow: scroll; */
-  z-index: 2 !important;
+  z-index: 2;
   background-color: white;
   /* position: relative; */
 }
