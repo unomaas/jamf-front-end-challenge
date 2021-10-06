@@ -17,3 +17,12 @@
   color: rgb(94, 94, 120);
   font-family: Roboto;
 }
+
+.Footer-cancel {
+  color: gray !important;
+  border-color: gray !important;
+}
+
+.Footer-button {
+  border-radius: 20px !important;
+}

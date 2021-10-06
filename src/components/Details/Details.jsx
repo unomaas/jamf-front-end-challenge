@@ -5,7 +5,7 @@ import './Details.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography } from '@mui/material';
+import { Grid, TextField, Typography, Button } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -14,9 +14,7 @@ function Details() {
   const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
   const dispatch = useDispatch();
-
   const userData = useSelector(store => store.user);
-
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
@@ -111,6 +109,28 @@ function Details() {
             onChange={event => handleChange('password', event.target.value)}
             type="password"
           />
+        </Grid>
+
+        <Grid
+          container
+          item
+          xs={12}
+          className="Footer-buttons"
+          justifyContent="flex-end"
+        >
+          <Button
+            variant="outlined"
+            className="Footer-button Footer-cancel"
+            // color={{color: "white"}}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            className="Footer-button"
+          >
+            Next
+          </Button>
         </Grid>
 
       </Grid>
