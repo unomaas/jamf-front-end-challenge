@@ -1,27 +1,45 @@
-import React from 'react'
+//#region ⬇⬇ All document setup, below:
+// ⬇ File Imports: 
 import './SideBar.css';
+// ⬇ Dependent Functionality:
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container, Avatar } from '@mui/material';
-import { theme } from '../MuiStyling/MuiStyling';
-// import { CircleIcon } from '@mui/icons-material';
 import CircleIcon from '@mui/icons-material/Circle';
+//#endregion ⬆⬆ All document setup above.
 
 
 export default function SideBar() {
-  // const classes = useStyles();
+  //#region ⬇⬇ All state variables below:
 
+  const circleColor = useSelector(store => store.sidebar);
+
+
+  // ⬇ Run on page load:
+  // useEffect(() => {
+  //   dispatch({ type: 'SET_BUTTON_STATE', payload: 'create' }),
+  //     // Fetches and set all fields for dropdown menus
+  //     dispatch({ type: 'FETCH_FIELD_SELECT' })
+  // }, []);
+  //#endregion ⬆⬆ All state variables above. 
+
+  //#region ⬇⬇ Event handlers below:
+  //#endregion ⬆⬆ Event handles above. 
+
+  // ⬇ Rendering:
+  console.log(circleColor);
   return (
-
     <Grid
       container
+      item
       xs={1}
       className="SideBar-wrapper"
-      
-      // direction="column"
     >
 
-      <Grid 
-        item 
-        xs={12} 
+      <Grid
+        item
+        xs={12}
         className="SideBar-content"
       >
         <Typography
@@ -30,7 +48,7 @@ export default function SideBar() {
         >
           <CircleIcon
             className="SideBar-circle"
-            color="success"
+            color={circleColor[0]}
           />
           Add login details
         </Typography>
@@ -43,7 +61,7 @@ export default function SideBar() {
         >
           <CircleIcon
             className="SideBar-circle"
-            color="action"
+            color={circleColor[1]}
           />
           Select the user group
         </Typography>
@@ -56,7 +74,7 @@ export default function SideBar() {
         >
           <CircleIcon
             className="SideBar-circle"
-            color="action"
+            color={circleColor[2]}
           />
           Submit the form
         </Typography>

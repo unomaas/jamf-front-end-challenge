@@ -2,7 +2,7 @@
 // ⬇ File Imports: 
 import './Details.css';
 // ⬇ Dependent Functionality:
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid, TextField, Typography } from '@mui/material';
@@ -18,11 +18,10 @@ function Details() {
   const userData = useSelector(store => store.user);
 
   // ⬇ Run on page load:
-  // useEffect(() => {
-  //   dispatch({ type: 'SET_BUTTON_STATE', payload: 'create' }),
-  //     // Fetches and set all fields for dropdown menus
-  //     dispatch({ type: 'FETCH_FIELD_SELECT' })
-  // }, []);
+  useEffect(() => {
+    // ⬇ Will set the color of the sidebar circles to indicate the page:
+    dispatch({ type: 'SET_SIDEBAR', payload: ['success', 'action', 'action'] })
+  }, []);
   //#endregion ⬆⬆ All state variables above. 
 
 
@@ -41,11 +40,11 @@ function Details() {
   //#endregion ⬆⬆ Event handles above. 
 
   // ⬇ Rendering:
-  console.log(userData);
   return (
     <>
       <Grid
         container
+        item
         xs={7}
         className="Details-wrapper"
         alignContent="flex-start"

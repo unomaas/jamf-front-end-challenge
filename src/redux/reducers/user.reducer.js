@@ -1,8 +1,4 @@
-const userReducer = (state = {
-  // email: "[Required]",
-  // password: "[Required]",
-  // verify: "[Required]"
-}, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_USER':
       return {
@@ -10,15 +6,11 @@ const userReducer = (state = {
         [action.payload.key]: action.payload.value
       }
     case 'CLEAR_USER':
-      return {
-        // email: "[Required]",
-        // password: "[Required]",
-        // verify: "[Required]"
-      };
+      return {};
     default:
       return state;
-  }
-};
+  } // End switch
+}; // End userReducer
 
 // user will be on the redux state at:
 // state.user
