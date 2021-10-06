@@ -1,7 +1,7 @@
 const userReducer = (state = {
-  email: "[Required]",
-  password: "[Required]",
-  verify: "[Required]"
+  // email: "[Required]",
+  // password: "[Required]",
+  // verify: "[Required]"
 }, action) => {
   switch (action.type) {
     case 'SET_USER':
@@ -11,9 +11,9 @@ const userReducer = (state = {
       }
     case 'CLEAR_USER':
       return {
-        email: "[Required]",
-        password: "[Required]",
-        verify: "[Required]"
+        // email: "[Required]",
+        // password: "[Required]",
+        // verify: "[Required]"
       };
     default:
       return state;

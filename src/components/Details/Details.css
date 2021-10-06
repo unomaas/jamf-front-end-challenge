@@ -11,3 +11,9 @@
   margin-left: 1.7em !important;
   margin-right: 1.7em !important;
 }
+
+.Details-input {
+  font-weight: 700 !important;
+  color: rgb(94, 94, 120);
+  font-family: Roboto;
+}

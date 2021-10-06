@@ -15,6 +15,7 @@ export default function SideBar() {
       container
       xs={1}
       className="SideBar-wrapper"
+      
       // direction="column"
     >
 
