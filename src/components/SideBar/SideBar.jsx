@@ -5,7 +5,7 @@ import './SideBar.css';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container, Avatar } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container, Avatar, TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 //#endregion ⬆⬆ All document setup above.
 
@@ -31,14 +31,86 @@ export default function SideBar() {
   console.log(circleColor);
   return (
     <Grid
-      container
       item
       xs={1}
       className="SideBar-wrapper"
-      alignItems="stretch"
+      // alignItems="stretch"
     >
 
-      <Grid
+      <TableContainer className="SideBar-content">
+        <Table>
+          <TableBody>
+
+            <TableRow >
+              <TableCell className="SideBar-cell">
+                <Typography
+                  className="SideBar-text"
+                  variant="p"
+                >
+                  <CircleIcon
+                    className="SideBar-circle"
+                    color={circleColor[0]}
+                  />
+                  Add login details
+                </Typography>
+              </TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="SideBar-cell">
+
+                <Typography
+                  className="SideBar-text"
+                  variant="p"
+                >
+                  <CircleIcon
+                    className="SideBar-circle"
+                    color={circleColor[1]}
+                  />
+                  Select the user group
+                </Typography>
+
+              </TableCell>
+            </TableRow>
+            
+
+            <TableRow>
+              <TableCell className="SideBar-cell">
+
+                <Typography
+                  className="SideBar-text"
+                  variant="p"
+                >
+                  <CircleIcon
+                    className="SideBar-circle"
+                    color={circleColor[2]}
+                  />
+                  Submit the form
+                </Typography>
+              </TableCell>
+            </TableRow>
+
+            
+
+            <TableRow className="SideBar-cell">
+              <TableCell className="SideBar-cell">
+
+                <Avatar
+                  className="SideBar-image"
+                  alt="Side Bar Logo Image"
+                  src="./images/app-icon.png"
+                />
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+    </Grid>
+  )
+}
+
+{/* <Grid
         item
         xs={12}
         className="SideBar-content"
@@ -91,9 +163,4 @@ export default function SideBar() {
           alt="Side Bar Logo Image"
           src="./images/app-icon.png"
         />
-      </Grid>
-
-    </Grid>
-
-  )
-}
+      </Grid> */}

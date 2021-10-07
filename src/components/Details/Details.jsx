@@ -43,18 +43,18 @@ function Details() {
 
   // ⬇ Rendering:
   return (
-    <>
+    <div className="Details-wrapper">
       <Grid
         container
-        // xs={12}
-        className="Details-wrapper"
+      // xs={12}
+
       // alignContent="flex-start"
       // alignItems="stretch"
       >
 
-        {/* <Grid item xs={1}> */}
+        {/* <Grid item xs={2}> */}
 
-        <SideBar />
+          <SideBar />
 
         {/* </Grid> */}
 
@@ -129,7 +129,7 @@ function Details() {
         <Footer />
 
       </Grid>
-    </>
+    </div>
   );
 }
 

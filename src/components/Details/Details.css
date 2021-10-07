@@ -1,13 +1,14 @@
 .Details-wrapper {
   /* margin: 0 !important; */
   /* overflow: scroll; */
-  z-index: 2;
+  /* z-index: 5 !important; */
   background-color: white;
   /* height: 100vh; */
   /* position: relative; */
 }
 
 .Details-content {
+  z-index: 5 !important;
   padding-top: 1.5em !important;
   margin-left: 1.7em !important;
   margin-right: 1.7em !important;
