@@ -3,6 +3,7 @@
 import './Submit.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
+import SnackbarManager from '../SnackbarManager/SnackbarManager';
 
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
@@ -70,20 +71,7 @@ export default function Submit() {
     <div className="Details-wrapper">
 
       {/* Snackbar configures all of the info pop-ups required. */}
-      <Snackbar
-        open={snack.open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert
-          variant={snack.variant}
-          onClose={handleClose}
-          severity={snack.severity}
-        >
-          {snack.message}
-        </Alert>
-      </Snackbar>
+      <SnackbarManager />
 
       <form onSubmit={handleSubmit}>
         <Grid
