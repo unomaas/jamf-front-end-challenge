@@ -3,6 +3,7 @@
 import './UserGroup.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
+import SnackbarManager from '../SnackbarManager/SnackbarManager';
 
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
@@ -65,16 +66,6 @@ export default function UserGroup() {
       dispatch({ type: 'GET_SUCCESS_USERGROUPS' });
     } // End if/else statement
   } // End handleSubmit
-
-  /** ⬇ handleClose:
-   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
-   */
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    } // End if statement
-    dispatch({ type: 'SET_CLOSE' })
-  }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
   // ⬇ Rendering:
@@ -82,20 +73,7 @@ export default function UserGroup() {
     <div className="Details-wrapper">
 
       {/* ⬇ Snackbar configures all of the info pop-ups required. */}
-      <Snackbar
-        open={snack.open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert
-          variant={snack.variant}
-          onClose={handleClose}
-          severity={snack.severity}
-        >
-          {snack.message}
-        </Alert>
-      </Snackbar>
+      <SnackbarManager />
 
       <form onSubmit={handleSubmit}>
         <Grid

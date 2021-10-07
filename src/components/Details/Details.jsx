@@ -3,13 +3,13 @@
 import './Details.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
+import SnackbarManager from '../SnackbarManager/SnackbarManager';
 
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
-
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -61,38 +61,15 @@ export default function Details() {
       dispatch({ type: 'GET_SUCCESS_DETAILS' });
     }
   } // End handleSubmit
-
-  /** ⬇ handleClose:
-   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
-   */
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    } // End if statement
-    dispatch({ type: 'SET_CLOSE' })
-  }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
-  console.log('**************', userData);
+
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
 
       {/* Snackbar configures all of the info pop-ups required. */}
-      <Snackbar
-        open={snack.open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert
-          variant={snack.variant}
-          onClose={handleClose}
-          severity={snack.severity}
-        >
-          {snack.message}
-        </Alert>
-      </Snackbar>
+      <SnackbarManager />
 
       <form onSubmit={handleSubmit}>
         <Grid

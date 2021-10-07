@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Footer.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -10,6 +10,7 @@ export default function Footer() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
+  const sidebarState = useSelector(store => store.sidebar);
   //#endregion ⬆⬆ All state variables above. 
 
   const handleCancel = () => {
@@ -18,8 +19,11 @@ export default function Footer() {
     dispatch({ type: "CLEAR_USER" });
     // ⬇ Sends the user back to the landing page:
     history.push(`/details`);
+    // ⬇ Snackbar Alert to show success:
+    dispatch({ type: 'GET_SUCCESS_CANCEL' });
   } // End handleChange
 
+  console.log(sidebarState[2]);
   return (
     <>
       <AppBar
@@ -50,7 +54,10 @@ export default function Footer() {
                       size="large"
                       type="submit"
                     >
-                      Next
+                      {/* ⬇ Conditional rendering to show Submit if we're on the final page of the wizard: */}
+                      {sidebarState[2] == "success" ?
+                        (<>Submit</>) : (<>Next</>)
+                      }
                     </Button>
                   </TableCell>
                 </TableRow>
