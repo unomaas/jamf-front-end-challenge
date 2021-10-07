@@ -12,10 +12,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 
 export default function SideBar() {
   //#region ⬇⬇ All state variables below:
-
   const circleColor = useSelector(store => store.sidebar);
-
-
   // ⬇ Run on page load:
   // useEffect(() => {
   //   dispatch({ type: 'SET_BUTTON_STATE', payload: 'create' }),
@@ -34,7 +31,6 @@ export default function SideBar() {
       item
       xs={1}
       className="SideBar-wrapper"
-    // alignItems="stretch"
     >
 
       <TableContainer className="SideBar-content">
@@ -58,7 +54,6 @@ export default function SideBar() {
 
             <TableRow>
               <TableCell className="SideBar-cell">
-
                 <Typography
                   className="SideBar-text"
                   variant="p"
@@ -73,10 +68,8 @@ export default function SideBar() {
               </TableCell>
             </TableRow>
 
-
             <TableRow>
               <TableCell className="SideBar-cell">
-
                 <Typography
                   className="SideBar-text"
                   variant="p"
@@ -90,82 +83,18 @@ export default function SideBar() {
               </TableCell>
             </TableRow>
 
-
-
-            <TableRow className="SideBar-cell">
-              <TableCell className="SideBar-cell">
-
-
-              </TableCell>
-            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
 
-
-    <div className="SideBar-image-wrapper">
-      <Avatar
-        className="SideBar-image"
-        alt="Side Bar Logo Image"
-        src="./images/app-icon.png"
-      />
-      </div>
-
-    </Grid>
-  )
-}
-
-{/* <Grid
-        item
-        xs={12}
-        className="SideBar-content"
-      >
-        <Typography
-          className="SideBar-text"
-          variant="p"
-        >
-          <CircleIcon
-            className="SideBar-circle"
-            color={circleColor[0]}
-          />
-          Add login details
-        </Typography>
-
-        <br /> <br />
-
-        <Typography
-          className="SideBar-text"
-          variant="p"
-        >
-          <CircleIcon
-            className="SideBar-circle"
-            color={circleColor[1]}
-          />
-          Select the user group
-        </Typography>
-
-        <br /> <br />
-
-        <Typography
-          className="SideBar-text"
-          variant="p"
-        >
-          <CircleIcon
-            className="SideBar-circle"
-            color={circleColor[2]}
-          />
-          Submit the form
-        </Typography>
-      </Grid>
-
-      <Grid
-        item
-        xs={12}
-        className="SideBar-image-wrapper"
-      >
+      <div className="SideBar-image-wrapper">
         <Avatar
           className="SideBar-image"
           alt="Side Bar Logo Image"
           src="./images/app-icon.png"
         />
-      </Grid> */}
+      </div>
+
+    </Grid>
+  )
+}

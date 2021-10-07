@@ -44,15 +44,15 @@ function Details() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In handleSubit');
+    console.log('In Details handleSubmit');
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Send the estimate object to be POSTed:
-    // dispatch({ type: 'ADD_ESTIMATE', payload: estimateData });
-
+    // ⬇ Send the user to the next page:
+    history.push(`/usergroup`);
   } // End handleSubmit
-  //#endregion ⬆⬆ Event handles above. 
+  //#endregion ⬆⬆ Event handlers above. 
 
+  
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
@@ -67,6 +67,7 @@ function Details() {
             className="Details-content" 
             item 
             xs={7}
+            // component="paper"
           >
 
             <TableContainer>

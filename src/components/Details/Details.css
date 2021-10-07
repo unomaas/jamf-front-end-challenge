@@ -10,8 +10,10 @@
 .Details-content {
   z-index: 5 !important;
   padding-top: 1.5em !important;
-  margin-left: .25em !important;
+  padding-left: .25em !important;
+  /* border-left: .1px solid rgb(109, 109, 137) !important; */
   /* margin-right: 1.7em !important; */
+  /* box-shadow: 0.25em 0.25em .25em #d4d4d4 !important; */
 }
 
 .Details-input {

@@ -23,8 +23,6 @@ function App() {
 
         <Header />
 
-        {/* <SideBar /> */}
-
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/details" />
@@ -41,8 +39,6 @@ function App() {
             <h1>404 - Please go back and try a different URL.</h1>
           </Route>
         </Switch>
-
-        {/* <Footer /> */}
 
       </div>
     </Router>
