@@ -5,7 +5,7 @@ import './Details.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -41,97 +41,103 @@ function Details() {
   return (
     <>
       <Grid
-        container
         item
         xs={7}
         className="Details-wrapper"
         alignContent="flex-start"
       >
 
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            EMAIL
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('email', event.target.value)}
-            type="search"
-          />
-        </Grid>
+        <TableContainer className="Details-content">
+          <Table>
+            <TableBody>
 
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            PASSWORD
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('password', event.target.value)}
-            type="password"
-          />
-        </Grid>
+              <TableRow>
+                <TableCell className="Footer-cell">
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    className="Details-input"
+                  >
+                    EMAIL
+                  </Typography>
+                  <TextField
+                    label="[Required]"
+                    required
+                    fullWidth
+                    onChange={event => handleChange('email', event.target.value)}
+                    type="search"
+                  />
+                </TableCell>
+              </TableRow>
 
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            VERIFY PASSWORD
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('password', event.target.value)}
-            type="password"
-          />
-        </Grid>
+              <TableRow>
+                <TableCell className="Footer-cell">
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    className="Details-input"
+                  >
+                    PASSWORD
+                  </Typography>
+                  <TextField
+                    label="[Required]"
+                    required
+                    fullWidth
+                    onChange={event => handleChange('password', event.target.value)}
+                    type="password"
+                  />
+                </TableCell>
+              </TableRow>
+              
+              <TableRow>
+                <TableCell className="Footer-cell">
+                  <Typography
+                    variant="subtitle2"
+                    gutterBottom
+                    className="Details-input"
+                  >
+                    VERIFY PASSWORD
+                  </Typography>
+                  <TextField
+                    label="[Required]"
+                    required
+                    fullWidth
+                    onChange={event => handleChange('password', event.target.value)}
+                    type="password"
+                  />
+                </TableCell>
+              </TableRow>
 
-        <Grid
-          container
-          item
-          xs={12}
-          className="Footer-buttons"
-          justifyContent="flex-end"
-        >
-          <Button
-            variant="outlined"
-            className="Footer-button Footer-cancel"
-            // color={{color: "white"}}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            className="Footer-button"
-          >
-            Next
-          </Button>
-        </Grid>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+
+              <TableRow>
+                <TableCell
+                  align="right"
+                  className="Footer-cell"
+                >
+                  <Button
+                    variant="outlined"
+                    className="Footer-button Footer-cancel"
+                  >
+                    Cancel
+                  </Button>
+                  &nbsp; &nbsp; &nbsp;
+                  <Button
+                    variant="contained"
+                    className="Footer-button"
+                  >
+                    Next
+                  </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
 
       </Grid>
     </>

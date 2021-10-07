@@ -7,7 +7,7 @@
 }
 
 .Details-content {
-  padding-top: 2.5em !important;
+  padding-top: 1.5em !important;
   margin-left: 1.7em !important;
   margin-right: 1.7em !important;
 }
@@ -25,4 +25,8 @@
 
 .Footer-button {
   border-radius: 20px !important;
+}
+
+.Footer-cell {
+  border-bottom: none !important;
 }
