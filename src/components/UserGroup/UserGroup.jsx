@@ -8,7 +8,7 @@ import SideBar from '../SideBar/SideBar';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem, Snackbar, Alert } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem, Snackbar, Alert, FormControl, FormHelperText } from '@mui/material';
 
 //#endregion ⬆⬆ All document setup above.
 
@@ -20,6 +20,8 @@ export default function UserGroup() {
   const userGroups = useSelector(store => store.userGroups);
   const userData = useSelector(store => store.user);
   const snack = useSelector(store => store.snackBar);
+  const [selectError, setSelectError] = useState("");
+
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will get the User Group options from the DB:
@@ -33,10 +35,10 @@ export default function UserGroup() {
 
   //#region ⬇⬇ Event handlers below:
   /** ⬇ handleChange:
-   * When the user types, this will set their input to the user object with keys for each field. 
+   * When the user selects, this will set their input to the user object with keys for each field. 
    */
   const handleChange = (key, value) => {
-    console.log('In handleChange, key/value:', key, value);
+    console.log('In UserGroup handleChange, key/value:', key, value);
     // ⬇ Sends the keys/values to the estimate reducer object: 
     dispatch({
       type: 'SET_USER',
@@ -51,8 +53,16 @@ export default function UserGroup() {
     console.log('In UserGroup handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Send the user to the next page:
-    // history.push(`/submit`);
+    // ⬇ Resetting form validation:
+    setSelectError("");
+    // ⬇ Form validation:
+    if (userData.userGroupId == 0) {
+      setSelectError("Please select a User Group to continue.")
+    } else {
+      // ⬇ Send the user to the next page:
+      // history.push(`/submit`);
+    } // End if/else statement
+
   } // End handleSubmit
 
   /** ⬇ handleClose:
@@ -127,7 +137,6 @@ export default function UserGroup() {
                           User Group to add the users to
                         </Typography>
                       </Typography>
-
                       <Select
                         onChange={event => handleChange('userGroupId', event.target.value)}
                         required
@@ -139,6 +148,7 @@ export default function UserGroup() {
                           return (<MenuItem key={group?.id} value={group?.id}>{group?.name}</MenuItem>)
                         })}
                       </Select>
+                      <FormHelperText sx={{ color: 'red' }}>{selectError}</FormHelperText>
 
                     </TableCell>
                   </TableRow>

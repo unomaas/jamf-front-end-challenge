@@ -33,7 +33,7 @@ function Details() {
    * When the user types, this will set their input to the user object with keys for each field. 
    */
   const handleChange = (key, value) => {
-    console.log('In handleChange, key/value:', key, value);
+    console.log('In Details handleChange, key/value:', key, value);
     // ⬇ Sends the keys/values to the estimate reducer object: 
     dispatch({
       type: 'SET_USER',
