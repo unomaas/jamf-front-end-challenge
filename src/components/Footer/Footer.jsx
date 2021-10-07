@@ -19,6 +19,8 @@ export default function Footer() {
     dispatch({ type: "CLEAR_USER" });
     // ⬇ Sends the user back to the landing page:
     history.push(`/details`);
+    // ⬇ Snackbar Alert to show success:
+    dispatch({ type: 'GET_SUCCESS_CANCEL' });
   } // End handleChange
 
   console.log(sidebarState[2]);
@@ -54,7 +56,7 @@ export default function Footer() {
                     >
                       {/* ⬇ Conditional rendering to show Submit if we're on the final page of the wizard: */}
                       {sidebarState[2] == "success" ?
-                        (<>Submit</>):(<>Next</>)
+                        (<>Submit</>) : (<>Next</>)
                       }
                     </Button>
                   </TableCell>
