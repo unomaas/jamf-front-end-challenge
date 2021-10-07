@@ -66,16 +66,6 @@ export default function UserGroup() {
       dispatch({ type: 'GET_SUCCESS_USERGROUPS' });
     } // End if/else statement
   } // End handleSubmit
-
-  /** ⬇ handleClose:
-   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
-   */
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    } // End if statement
-    dispatch({ type: 'SET_CLOSE' })
-  }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
   // ⬇ Rendering:

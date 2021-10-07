@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
+import { Snackbar, Alert, Slide } from '@mui/material';
 
 
 export default function SnackbarManager() {
   //#region ⬇⬇ All state variables below:
+  const dispatch = useDispatch();
   const snack = useSelector(store => store.snackBar);
   //#endregion ⬆⬆ All state variables above. 
 
@@ -39,5 +39,5 @@ export default function SnackbarManager() {
         {snack.message}
       </Alert>
     </Snackbar>
-  )
-}
+  ) // End return
+} // End SnackbarManager

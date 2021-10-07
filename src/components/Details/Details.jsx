@@ -61,8 +61,6 @@ export default function Details() {
       dispatch({ type: 'GET_SUCCESS_DETAILS' });
     }
   } // End handleSubmit
-
-
   //#endregion ⬆⬆ Event handlers above. 
 
 

@@ -32,8 +32,6 @@ export default function Submit() {
 
 
   //#region ⬇⬇ Event handlers below:
-
-
   /** ⬇ handleSubmit:
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
@@ -53,16 +51,6 @@ export default function Submit() {
       dispatch({ type: 'GET_SUCCESS_DETAILS' });
     }
   } // End handleSubmit
-
-  /** ⬇ handleClose:
-   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
-   */
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    } // End if statement
-    dispatch({ type: 'SET_CLOSE' })
-  }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
 
