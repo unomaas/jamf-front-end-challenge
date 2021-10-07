@@ -39,96 +39,106 @@ function Details() {
       payload: { key: key, value: value }
     });
   } // End handleChange
+
+  /** ⬇ handleSubmit:
+   * When clicked, this will post the object to the DB and send the user back to the dashboard. 
+   */
+  const handleSubmit = event => {
+    console.log('In handleSubit');
+    // ⬇ Don't refresh until submit:
+    event.preventDefault();
+    // ⬇ Send the estimate object to be POSTed:
+    // dispatch({ type: 'ADD_ESTIMATE', payload: estimateData });
+
+  } // End handleSubmit
   //#endregion ⬆⬆ Event handles above. 
 
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
-      <Grid
-        container
-      // xs={12}
-
-      // alignContent="flex-start"
-      // alignItems="stretch"
-      >
-
-        {/* <Grid item xs={2}> */}
+      <form onSubmit={handleSubmit}>
+        <Grid
+          container
+        >
 
           <SideBar />
 
-        {/* </Grid> */}
+          <Grid 
+            className="Details-content" 
+            item 
+            xs={7}
+          >
 
-        <Grid item xs={7}>
+            <TableContainer>
+              <Table>
+                <TableBody>
 
-          <TableContainer className="Details-content">
-            <Table>
-              <TableBody>
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        EMAIL
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('email', event.target.value)}
+                        type="search"
+                      />
+                    </TableCell>
+                  </TableRow>
 
-                <TableRow>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography
-                      variant="subtitle2"
-                      gutterBottom
-                      className="Details-input"
-                    >
-                      EMAIL
-                    </Typography>
-                    <TextField
-                      placeholder="[Required]"
-                      required
-                      fullWidth
-                      onChange={event => handleChange('email', event.target.value)}
-                      type="search"
-                    />
-                  </TableCell>
-                </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        PASSWORD
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('password', event.target.value)}
+                        type="password"
+                      />
+                    </TableCell>
+                  </TableRow>
 
-                <TableRow>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography
-                      variant="subtitle2"
-                      gutterBottom
-                      className="Details-input"
-                    >
-                      PASSWORD
-                    </Typography>
-                    <TextField
-                      placeholder="[Required]"
-                      required
-                      fullWidth
-                      onChange={event => handleChange('password', event.target.value)}
-                      type="password"
-                    />
-                  </TableCell>
-                </TableRow>
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        VERIFY PASSWORD
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('verify', event.target.value)}
+                        type="password"
+                      />
+                    </TableCell>
+                  </TableRow>
 
-                <TableRow>
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <Typography
-                      variant="subtitle2"
-                      gutterBottom
-                      className="Details-input"
-                    >
-                      VERIFY PASSWORD
-                    </Typography>
-                    <TextField
-                      placeholder="[Required]"
-                      required
-                      fullWidth
-                      onChange={event => handleChange('verify', event.target.value)}
-                      type="password"
-                    />
-                  </TableCell>
-                </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
 
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <Footer />
+
         </Grid>
-
-        <Footer />
-
-      </Grid>
+      </form>
     </div>
   );
 }

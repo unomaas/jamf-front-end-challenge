@@ -31,6 +31,7 @@ export default function Footer() {
                       variant="contained"
                       className="Footer-button"
                       size="large"
+                      type="submit"
                     >
                       Next
                     </Button>

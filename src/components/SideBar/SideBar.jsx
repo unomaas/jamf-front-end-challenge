@@ -34,7 +34,7 @@ export default function SideBar() {
       item
       xs={1}
       className="SideBar-wrapper"
-      // alignItems="stretch"
+    // alignItems="stretch"
     >
 
       <TableContainer className="SideBar-content">
@@ -72,7 +72,7 @@ export default function SideBar() {
 
               </TableCell>
             </TableRow>
-            
+
 
             <TableRow>
               <TableCell className="SideBar-cell">
@@ -90,21 +90,26 @@ export default function SideBar() {
               </TableCell>
             </TableRow>
 
-            
+
 
             <TableRow className="SideBar-cell">
               <TableCell className="SideBar-cell">
 
-                <Avatar
-                  className="SideBar-image"
-                  alt="Side Bar Logo Image"
-                  src="./images/app-icon.png"
-                />
+
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
+
+
+    <div className="SideBar-image-wrapper">
+      <Avatar
+        className="SideBar-image"
+        alt="Side Bar Logo Image"
+        src="./images/app-icon.png"
+      />
+      </div>
 
     </Grid>
   )
