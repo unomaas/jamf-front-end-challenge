@@ -8,6 +8,7 @@ import { Grid } from '@mui/material';
 import SideBar from '../SideBar/SideBar';
 import Footer from '../Footer/Footer';
 import UserGroup from '../UserGroup/UserGroup';
+import Submit from '../Submit/Submit';
 
 
 function App() {
@@ -40,6 +41,13 @@ function App() {
             path="/usergroup"
           >
             <UserGroup />
+          </Route>
+
+          <Route
+            exact
+            path="/submit"
+          >
+            <Submit />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
