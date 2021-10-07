@@ -1,6 +1,6 @@
 //#region ⬇⬇ All document setup, below:
 // ⬇ File Imports: 
-import './Details.css';
+import './Submit.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
 
@@ -8,15 +8,16 @@ import SideBar from '../SideBar/SideBar';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText, Select, MenuItem } from '@mui/material';
 
 //#endregion ⬆⬆ All document setup above.
 
 
-export default function Details() {
+export default function Submit() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
+  const userGroups = useSelector(store => store.userGroups);
   const userData = useSelector(store => store.user);
   const snack = useSelector(store => store.snackBar);
   const [validationError, setValidationError] = useState("");
@@ -24,23 +25,13 @@ export default function Details() {
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
-    dispatch({ type: 'SET_SIDEBAR', payload: ['success', 'action', 'action'] })
+    dispatch({ type: 'SET_SIDEBAR', payload: ['action', 'action', 'success'] })
   }, []);
   //#endregion ⬆⬆ All state variables above. 
 
 
   //#region ⬇⬇ Event handlers below:
-  /** ⬇ handleChange:
-   * When the user types, this will set their input to the user object with keys for each field. 
-   */
-  const handleChange = (key, value) => {
-    console.log('In Details handleChange, key/value:', key, value);
-    // ⬇ Sends the keys/values to the estimate reducer object: 
-    dispatch({
-      type: 'SET_USER',
-      payload: { key: key, value: value }
-    });
-  } // End handleChange
+
 
   /** ⬇ handleSubmit:
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
@@ -52,7 +43,7 @@ export default function Details() {
     // ⬇ Resetting form validation:
     setValidationError("");
     // ⬇ Password validation:
-    if (userData.password !== userData.verify) {
+    if (userData.password !== userData.validation) {
       setValidationError("* Your passwords must match to continue.");
     } else {
       // ⬇ Send the user to the next page:
@@ -73,7 +64,7 @@ export default function Details() {
   }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
-  console.log('**************', userData);
+
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
@@ -117,15 +108,16 @@ export default function Details() {
                         variant="subtitle2"
                         gutterBottom
                         className="Details-input"
+                        sx={{ color: "gray" }}
                       >
                         EMAIL
                       </Typography>
                       <TextField
-                        placeholder="[Required]"
+                        value={userData.email}
                         required
                         fullWidth
-                        onChange={event => handleChange('email', event.target.value)}
                         type="email"
+                        disabled
                       />
                     </TableCell>
                   </TableRow>
@@ -136,36 +128,21 @@ export default function Details() {
                         variant="subtitle2"
                         gutterBottom
                         className="Details-input"
+                        sx={{ color: "gray" }}
                       >
-                        PASSWORD
+                        USER GROUP
                       </Typography>
-                      <TextField
-                        placeholder="[Required]"
+                      <Select
                         required
                         fullWidth
-                        onChange={event => handleChange('password', event.target.value)}
-                        type="password"
-                      />
-                    </TableCell>
-                  </TableRow>
-
-                  <TableRow>
-                    <TableCell sx={{ borderBottom: "none" }}>
-                      <Typography
-                        variant="subtitle2"
-                        gutterBottom
-                        className="Details-input"
+                        value={userData.userGroupId}
+                        disabled
                       >
-                        VERIFY PASSWORD
-                      </Typography>
-                      <TextField
-                        placeholder="[Required]"
-                        required
-                        fullWidth
-                        onChange={event => handleChange('verify', event.target.value)}
-                        type="password"
-                      />
-                      <FormHelperText sx={{ color: 'red' }}>{validationError}</FormHelperText>
+                        <MenuItem key="0" value="0">None</MenuItem>
+                        {userGroups?.map(group => {
+                          return (<MenuItem key={group?.id} value={group?.id}>{group?.name}</MenuItem>)
+                        })}
+                      </Select>
                     </TableCell>
                   </TableRow>
 
