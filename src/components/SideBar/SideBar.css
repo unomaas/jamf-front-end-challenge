@@ -1,0 +1,38 @@
+.SideBar-wrapper {
+  /* width: 55vw !important; */
+  min-width: 240px;
+  /* max-width: 300px; */
+  min-height: calc(100vh - 80px);
+  /* min-height: -webkit-fill-available; */
+  background-image: url("./side-background.png");
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.SideBar-content {
+  /* height: 1px; */
+  padding-top: 2.5em;
+}
+
+.SideBar-circle {
+  margin-right: 1.2em !important;
+  margin-left: 1.7em !important;
+  /* vertical-align: middle; */
+  font-size: .85em !important;
+}
+
+.SideBar-text {
+  font-size: 1.05em;
+  font-weight: 425;
+
+}
+
+/* .SideBar-image-wrapper {
+} */
+
+.SideBar-image {
+  min-width: 16em;
+  min-height: 16em;
+  /* overflow: hidden !important; */
+  z-index: 1;
+}
