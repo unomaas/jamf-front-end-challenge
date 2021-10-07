@@ -1,4 +1,6 @@
-const userReducer = (state = {}, action) => {
+const userReducer = (state = {
+  userGroupId: 0,
+}, action) => {
   switch (action.type) {
     case 'SET_USER':
       return {
