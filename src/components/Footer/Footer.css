@@ -1,0 +1,18 @@
+.Footer-wrapper {
+  background-color: white !important;
+  box-shadow: none !important;
+
+}
+
+.Footer-cancel {
+  color: gray !important;
+  border-color: gray !important;
+}
+
+.Footer-button {
+  border-radius: 30px !important;
+  text-transform: capitalize !important;
+  font-weight: 300 !important;
+  font-size: 1.25em !important;
+}
+

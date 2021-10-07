@@ -18,11 +18,12 @@ function App() {
 
   return (
     <Router>
-      <Grid container className="App-wrapper">
+      {/* <Grid container className="App-wrapper"> */}
+      <div className="App-wrapper">
 
         <Header />
 
-        <SideBar />
+        {/* <SideBar /> */}
 
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -43,8 +44,8 @@ function App() {
 
         {/* <Footer /> */}
 
-
-      </Grid>
+      </div>
+      {/* </Grid> */}
     </Router>
   );
 }

@@ -19,17 +19,3 @@
   font-family: Roboto;
 }
 
-.Footer-cancel {
-  color: gray !important;
-  border-color: gray !important;
-}
-
-.Footer-button {
-  border-radius: 20px !important;
-  text-transform: capitalize !important;
-  font-weight: 300 !important;
-}
-
-.Footer-cell {
-  border-bottom: none !important;
-}

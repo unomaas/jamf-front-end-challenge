@@ -2,6 +2,8 @@
 // ⬇ File Imports: 
 import './Details.css';
 import Footer from '../Footer/Footer';
+import SideBar from '../SideBar/SideBar';
+
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,11 +45,11 @@ function Details() {
   return (
     <>
       <Grid
-        item
-        xs={7}
+        container
+        // xs={12}
         className="Details-wrapper"
-        alignContent="flex-start"
-        alignItems="stretch"
+        // alignContent="flex-start"
+        // alignItems="stretch"
       >
 
         <TableContainer className="Details-content">
@@ -55,7 +57,7 @@ function Details() {
             <TableBody>
 
               <TableRow>
-                <TableCell className="Footer-cell">
+                <TableCell sx={{ borderBottom: "none" }}>
                   <Typography
                     variant="subtitle2"
                     gutterBottom
@@ -64,7 +66,6 @@ function Details() {
                     EMAIL
                   </Typography>
                   <TextField
-                    // label="[Required]"
                     placeholder="[Required]"
                     required
                     fullWidth
@@ -75,7 +76,7 @@ function Details() {
               </TableRow>
 
               <TableRow>
-                <TableCell className="Footer-cell">
+                <TableCell sx={{ borderBottom: "none" }}>
                   <Typography
                     variant="subtitle2"
                     gutterBottom
@@ -84,7 +85,6 @@ function Details() {
                     PASSWORD
                   </Typography>
                   <TextField
-                    // label="[Required]"
                     placeholder="[Required]"
                     required
                     fullWidth
@@ -95,7 +95,7 @@ function Details() {
               </TableRow>
               
               <TableRow>
-                <TableCell className="Footer-cell">
+                <TableCell sx={{ borderBottom: "none" }}>
                   <Typography
                     variant="subtitle2"
                     gutterBottom
@@ -104,7 +104,6 @@ function Details() {
                     VERIFY PASSWORD
                   </Typography>
                   <TextField
-                    // label="[Required]"
                     placeholder="[Required]"
                     required
                     fullWidth
@@ -114,7 +113,7 @@ function Details() {
                 </TableCell>
               </TableRow>
 
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+              {/* <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
               <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
               <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
               <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
@@ -126,7 +125,7 @@ function Details() {
                   align="right"
                   className="Footer-cell"
                 >
-                  {/* <Button
+                  <Button
                     variant="outlined"
                     className="Footer-button Footer-cancel"
                   >
@@ -138,9 +137,9 @@ function Details() {
                     className="Footer-button"
                   >
                     Next
-                  </Button> */}
+                  </Button>
                 </TableCell>
-              </TableRow>
+              </TableRow> */}
             </TableBody>
           </Table>
         </TableContainer>

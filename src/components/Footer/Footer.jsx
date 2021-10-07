@@ -6,39 +6,42 @@ import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, Table
 export default function Footer() {
   return (
     <>
-      {/* <Grid
-        item
-        xs={12}
-        // className="Details-wrapper"
-        // alignContent="flex-end"
-      > */}
-
-        <AppBar
-          position="sticky"
-          // position="static"
-          sx={{ top: 'auto', bottom: 0 }}
-          className="test"
-        >
-          <Toolbar>
-            <Button
-              variant="outlined"
-              className="Footer-button Footer-cancel"
-            >
-              Cancel
-            </Button>
-            &nbsp; &nbsp; &nbsp;
-            <Button
-              variant="contained"
-              className="Footer-button"
-            >
-              Next
-            </Button>
-          </Toolbar>
-
-        </AppBar>
-
-
-      {/* </Grid> */}
+      <AppBar
+        sx={{ top: 'auto', bottom: 0 }}
+        className="Footer-wrapper"
+      >
+        <Toolbar>
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell
+                    align="right"
+                    sx={{ borderBottom: "none" }}
+                  >
+                    <Button
+                      variant="outlined"
+                      className="Footer-button Footer-cancel"
+                      size="large"
+                    >
+                      Cancel
+                    </Button>
+                    &nbsp; &nbsp; &nbsp;
+                    <Button
+                      variant="contained"
+                      className="Footer-button"
+                      size="large"
+                    >
+                      Next
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
     </>
   )
 }
