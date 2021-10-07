@@ -1,0 +1,20 @@
+.Footer-wrapper {
+  background-color: rgba(255, 255, 255, 0) !important;
+  box-shadow: none !important;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}
+
+.Footer-cancel {
+  color: gray !important;
+  border-color: gray !important;
+  margin-right: 1em !important;
+}
+
+.Footer-button {
+  border-radius: 30px !important;
+  text-transform: capitalize !important;
+  font-weight: 300 !important;
+  font-size: 1.25em !important;
+}
+

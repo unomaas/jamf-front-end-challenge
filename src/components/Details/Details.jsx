@@ -1,11 +1,15 @@
 //#region ⬇⬇ All document setup, below:
 // ⬇ File Imports: 
 import './Details.css';
+import Footer from '../Footer/Footer';
+import SideBar from '../SideBar/SideBar';
+
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -35,106 +39,108 @@ function Details() {
       payload: { key: key, value: value }
     });
   } // End handleChange
-  //#endregion ⬆⬆ Event handles above. 
 
+  /** ⬇ handleSubmit:
+   * When clicked, this will post the object to the DB and send the user back to the dashboard. 
+   */
+  const handleSubmit = event => {
+    console.log('In Details handleSubmit');
+    // ⬇ Don't refresh until submit:
+    event.preventDefault();
+    // ⬇ Send the user to the next page:
+    history.push(`/usergroup`);
+  } // End handleSubmit
+  //#endregion ⬆⬆ Event handlers above. 
+
+  
   // ⬇ Rendering:
   return (
-    <>
-      <Grid
-        container
-        item
-        xs={7}
-        className="Details-wrapper"
-        alignContent="flex-start"
-      >
-
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            EMAIL
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('email', event.target.value)}
-            type="search"
-          />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            PASSWORD
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('password', event.target.value)}
-            type="password"
-          />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          className="Details-content"
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            className="Details-input"
-          >
-            VERIFY PASSWORD
-          </Typography>
-          <TextField
-            label="[Required]"
-            required
-            fullWidth
-            onChange={event => handleChange('password', event.target.value)}
-            type="password"
-          />
-        </Grid>
-
+    <div className="Details-wrapper">
+      <form onSubmit={handleSubmit}>
         <Grid
           container
-          item
-          xs={12}
-          className="Footer-buttons"
-          justifyContent="flex-end"
         >
-          <Button
-            variant="outlined"
-            className="Footer-button Footer-cancel"
-            // color={{color: "white"}}
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            className="Footer-button"
-          >
-            Next
-          </Button>
-        </Grid>
 
-      </Grid>
-    </>
+          <SideBar />
+
+          <Grid 
+            className="Details-content" 
+            item 
+            xs={7}
+            // component="paper"
+          >
+
+            <TableContainer>
+              <Table>
+                <TableBody>
+
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        EMAIL
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('email', event.target.value)}
+                        type="search"
+                      />
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        PASSWORD
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('password', event.target.value)}
+                        type="password"
+                      />
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                      >
+                        VERIFY PASSWORD
+                      </Typography>
+                      <TextField
+                        placeholder="[Required]"
+                        required
+                        fullWidth
+                        onChange={event => handleChange('verify', event.target.value)}
+                        type="password"
+                      />
+                    </TableCell>
+                  </TableRow>
+
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
+
+          <Footer />
+
+        </Grid>
+      </form>
+    </div>
   );
 }
 

@@ -6,6 +6,7 @@ import Details from '../Details/Details';
 import './App.css';
 import { Grid } from '@mui/material';
 import SideBar from '../SideBar/SideBar';
+import Footer from '../Footer/Footer';
 
 
 function App() {
@@ -17,11 +18,10 @@ function App() {
 
   return (
     <Router>
-      <Grid container>
+      {/* <Grid container className="App-wrapper"> */}
+      <div className="App-wrapper">
 
         <Header />
-
-        <SideBar />
 
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -40,8 +40,7 @@ function App() {
           </Route>
         </Switch>
 
-
-      </Grid>
+      </div>
     </Router>
   );
 }
