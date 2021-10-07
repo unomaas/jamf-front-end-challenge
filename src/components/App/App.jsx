@@ -6,6 +6,7 @@ import Details from '../Details/Details';
 import './App.css';
 import { Grid } from '@mui/material';
 import SideBar from '../SideBar/SideBar';
+import Footer from '../Footer/Footer';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <Router>
-      <Grid container>
+      <Grid container className="App-wrapper">
 
         <Header />
 
@@ -39,6 +40,8 @@ function App() {
             <h1>404 - Please go back and try a different URL.</h1>
           </Route>
         </Switch>
+
+        {/* <Footer /> */}
 
 
       </Grid>

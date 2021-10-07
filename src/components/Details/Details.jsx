@@ -1,11 +1,13 @@
 //#region ⬇⬇ All document setup, below:
 // ⬇ File Imports: 
 import './Details.css';
+import Footer from '../Footer/Footer';
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -45,6 +47,7 @@ function Details() {
         xs={7}
         className="Details-wrapper"
         alignContent="flex-start"
+        alignItems="stretch"
       >
 
         <TableContainer className="Details-content">
@@ -61,7 +64,8 @@ function Details() {
                     EMAIL
                   </Typography>
                   <TextField
-                    label="[Required]"
+                    // label="[Required]"
+                    placeholder="[Required]"
                     required
                     fullWidth
                     onChange={event => handleChange('email', event.target.value)}
@@ -80,7 +84,8 @@ function Details() {
                     PASSWORD
                   </Typography>
                   <TextField
-                    label="[Required]"
+                    // label="[Required]"
+                    placeholder="[Required]"
                     required
                     fullWidth
                     onChange={event => handleChange('password', event.target.value)}
@@ -99,10 +104,11 @@ function Details() {
                     VERIFY PASSWORD
                   </Typography>
                   <TextField
-                    label="[Required]"
+                    // label="[Required]"
+                    placeholder="[Required]"
                     required
                     fullWidth
-                    onChange={event => handleChange('password', event.target.value)}
+                    onChange={event => handleChange('verify', event.target.value)}
                     type="password"
                   />
                 </TableCell>
@@ -120,7 +126,7 @@ function Details() {
                   align="right"
                   className="Footer-cell"
                 >
-                  <Button
+                  {/* <Button
                     variant="outlined"
                     className="Footer-button Footer-cancel"
                   >
@@ -132,12 +138,14 @@ function Details() {
                     className="Footer-button"
                   >
                     Next
-                  </Button>
+                  </Button> */}
                 </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
+
+        <Footer />
 
       </Grid>
     </>

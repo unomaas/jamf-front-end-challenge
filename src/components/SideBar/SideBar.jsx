@@ -35,6 +35,7 @@ export default function SideBar() {
       item
       xs={1}
       className="SideBar-wrapper"
+      alignItems="stretch"
     >
 
       <Grid

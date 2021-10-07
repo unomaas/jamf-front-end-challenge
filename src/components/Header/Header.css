@@ -21,7 +21,7 @@
 } */
 
 .Header-wrapper {
-  box-shadow: 0.25em 0.25em .25em #d4d4d4;
+  box-shadow: 0.25em 0.25em .25em #d4d4d4 !important;
   position: relative;
   z-index: 5;
 }

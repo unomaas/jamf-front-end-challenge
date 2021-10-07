@@ -3,6 +3,7 @@
   /* overflow: scroll; */
   z-index: 2;
   background-color: white;
+  /* height: 100vh; */
   /* position: relative; */
 }
 
@@ -25,6 +26,8 @@
 
 .Footer-button {
   border-radius: 20px !important;
+  text-transform: capitalize !important;
+  font-weight: 300 !important;
 }
 
 .Footer-cell {
