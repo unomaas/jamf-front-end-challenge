@@ -7,6 +7,7 @@ import './App.css';
 import { Grid } from '@mui/material';
 import SideBar from '../SideBar/SideBar';
 import Footer from '../Footer/Footer';
+import UserGroup from '../UserGroup/UserGroup';
 
 
 function App() {
@@ -32,6 +33,13 @@ function App() {
             path="/details"
           >
             <Details />
+          </Route>
+
+          <Route
+            exact
+            path="/usergroup"
+          >
+            <UserGroup />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
