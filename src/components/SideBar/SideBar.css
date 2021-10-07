@@ -1,5 +1,5 @@
 .SideBar-wrapper {
-  /* width: 25vw; */
+  /* width: 55vw !important; */
   min-width: 240px;
   /* max-width: 300px; */
   min-height: calc(100vh - 80px);
