@@ -25,7 +25,6 @@ export default function SideBar() {
   //#endregion ⬆⬆ Event handles above. 
 
   // ⬇ Rendering:
-  console.log(circleColor);
   return (
     <Grid
       item

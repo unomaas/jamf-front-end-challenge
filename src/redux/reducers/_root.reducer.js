@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import sidebar from './sidebar.reducer';
 import userGroups from './usergroup.reducer';
+import snackBar from './snack.reducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   sidebar, // Will set the circle to green on the sidebar. 
   userGroups, // Will get the User Group dropdown selections. 
+  snackBar, // Is the reducer data for snackbar alerts. 
 });
 
 export default rootReducer;

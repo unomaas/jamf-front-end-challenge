@@ -8,7 +8,7 @@ import SideBar from '../SideBar/SideBar';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
 
 //#endregion ⬆⬆ All document setup above.
 
@@ -18,6 +18,9 @@ function Details() {
   const history = useHistory();
   const dispatch = useDispatch();
   const userData = useSelector(store => store.user);
+  const snack = useSelector(store => store.snackBar);
+  const [validationError, setValidationError] = useState("");
+
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
@@ -31,7 +34,7 @@ function Details() {
    * When the user types, this will set their input to the user object with keys for each field. 
    */
   const handleChange = (key, value) => {
-    console.log('In handleChange, key/value:', key, value);
+    console.log('In Details handleChange, key/value:', key, value);
     // ⬇ Sends the keys/values to the estimate reducer object: 
     dispatch({
       type: 'SET_USER',
@@ -43,18 +46,54 @@ function Details() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In Details handleSubmit');
+    console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Send the user to the next page:
-    history.push(`/usergroup`);
+    // ⬇ Resetting form validation:
+    setValidationError("");
+    // ⬇ Password validation:
+    if (userData.password !== userData.validation) {
+      setValidationError("* Your passwords must match to continue.");
+    } else {
+      // ⬇ Send the user to the next page:
+      history.push(`/usergroup`);
+      // ⬇ Snackbar Alert to show success:
+      dispatch({ type: 'GET_SUCCESS_DETAILS' });
+    }
   } // End handleSubmit
+
+  /** ⬇ handleClose:
+   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
+   */
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    } // End if statement
+    dispatch({ type: 'SET_CLOSE' })
+  }; // End handleClose
   //#endregion ⬆⬆ Event handlers above. 
 
 
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
+
+      {/* Snackbar configures all of the info pop-ups required. */}
+      <Snackbar
+        open={snack.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert
+          variant={snack.variant}
+          onClose={handleClose}
+          severity={snack.severity}
+        >
+          {snack.message}
+        </Alert>
+      </Snackbar>
+
       <form onSubmit={handleSubmit}>
         <Grid
           container
@@ -62,9 +101,9 @@ function Details() {
 
           <SideBar />
 
-          <Grid 
-            className="Details-content" 
-            item 
+          <Grid
+            className="Details-content"
+            item
             xs={7}
           >
 
@@ -86,7 +125,7 @@ function Details() {
                         required
                         fullWidth
                         onChange={event => handleChange('email', event.target.value)}
-                        type="search"
+                        type="email"
                       />
                     </TableCell>
                   </TableRow>
@@ -126,6 +165,7 @@ function Details() {
                         onChange={event => handleChange('verify', event.target.value)}
                         type="password"
                       />
+                      <FormHelperText sx={{ color: 'red' }}>{validationError}</FormHelperText>
                     </TableCell>
                   </TableRow>
 
@@ -138,6 +178,7 @@ function Details() {
 
         </Grid>
       </form>
+
     </div>
   );
 }
