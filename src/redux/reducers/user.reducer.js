@@ -8,7 +8,9 @@ const userReducer = (state = {
         [action.payload.key]: action.payload.value
       }
     case 'CLEAR_USER':
-      return {};
+      return {
+        userGroupId: 0,
+      };
     default:
       return state;
   } // End switch

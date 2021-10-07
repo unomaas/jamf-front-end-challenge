@@ -1,4 +1,4 @@
-const userGroupReducer = (state = {}, action) => {
+const userGroupReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_USER_GROUPS':      
       return action.payload;
