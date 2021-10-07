@@ -45,7 +45,6 @@ function App() {
         {/* <Footer /> */}
 
       </div>
-      {/* </Grid> */}
     </Router>
   );
 }

@@ -26,7 +26,7 @@ export default function Footer() {
                     >
                       Cancel
                     </Button>
-                    &nbsp; &nbsp; &nbsp;
+
                     <Button
                       variant="contained"
                       className="Footer-button"

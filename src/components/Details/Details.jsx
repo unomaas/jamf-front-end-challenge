@@ -48,101 +48,83 @@ function Details() {
         container
         // xs={12}
         className="Details-wrapper"
-        // alignContent="flex-start"
-        // alignItems="stretch"
+      // alignContent="flex-start"
+      // alignItems="stretch"
       >
 
-        <TableContainer className="Details-content">
-          <Table>
-            <TableBody>
+        {/* <Grid item xs={1}> */}
 
-              <TableRow>
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    className="Details-input"
-                  >
-                    EMAIL
-                  </Typography>
-                  <TextField
-                    placeholder="[Required]"
-                    required
-                    fullWidth
-                    onChange={event => handleChange('email', event.target.value)}
-                    type="search"
-                  />
-                </TableCell>
-              </TableRow>
+        <SideBar />
 
-              <TableRow>
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    className="Details-input"
-                  >
-                    PASSWORD
-                  </Typography>
-                  <TextField
-                    placeholder="[Required]"
-                    required
-                    fullWidth
-                    onChange={event => handleChange('password', event.target.value)}
-                    type="password"
-                  />
-                </TableCell>
-              </TableRow>
-              
-              <TableRow>
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Typography
-                    variant="subtitle2"
-                    gutterBottom
-                    className="Details-input"
-                  >
-                    VERIFY PASSWORD
-                  </Typography>
-                  <TextField
-                    placeholder="[Required]"
-                    required
-                    fullWidth
-                    onChange={event => handleChange('verify', event.target.value)}
-                    type="password"
-                  />
-                </TableCell>
-              </TableRow>
+        {/* </Grid> */}
 
-              {/* <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
-              <TableRow><TableCell className="Footer-cell"></TableCell></TableRow>
+        <Grid item xs={7}>
 
-              <TableRow>
-                <TableCell
-                  align="right"
-                  className="Footer-cell"
-                >
-                  <Button
-                    variant="outlined"
-                    className="Footer-button Footer-cancel"
-                  >
-                    Cancel
-                  </Button>
-                  &nbsp; &nbsp; &nbsp;
-                  <Button
-                    variant="contained"
-                    className="Footer-button"
-                  >
-                    Next
-                  </Button>
-                </TableCell>
-              </TableRow> */}
-            </TableBody>
-          </Table>
-        </TableContainer>
+          <TableContainer className="Details-content">
+            <Table>
+              <TableBody>
+
+                <TableRow>
+                  <TableCell sx={{ borderBottom: "none" }}>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      className="Details-input"
+                    >
+                      EMAIL
+                    </Typography>
+                    <TextField
+                      placeholder="[Required]"
+                      required
+                      fullWidth
+                      onChange={event => handleChange('email', event.target.value)}
+                      type="search"
+                    />
+                  </TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell sx={{ borderBottom: "none" }}>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      className="Details-input"
+                    >
+                      PASSWORD
+                    </Typography>
+                    <TextField
+                      placeholder="[Required]"
+                      required
+                      fullWidth
+                      onChange={event => handleChange('password', event.target.value)}
+                      type="password"
+                    />
+                  </TableCell>
+                </TableRow>
+
+                <TableRow>
+                  <TableCell sx={{ borderBottom: "none" }}>
+                    <Typography
+                      variant="subtitle2"
+                      gutterBottom
+                      className="Details-input"
+                    >
+                      VERIFY PASSWORD
+                    </Typography>
+                    <TextField
+                      placeholder="[Required]"
+                      required
+                      fullWidth
+                      onChange={event => handleChange('verify', event.target.value)}
+                      type="password"
+                    />
+                  </TableCell>
+                </TableRow>
+
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Grid>
 
         <Footer />
 
