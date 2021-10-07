@@ -4,13 +4,11 @@ import './Submit.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
 import SnackbarManager from '../SnackbarManager/SnackbarManager';
-
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText, Select, MenuItem } from '@mui/material';
-
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -20,9 +18,6 @@ export default function Submit() {
   const dispatch = useDispatch();
   const userGroups = useSelector(store => store.userGroups);
   const userData = useSelector(store => store.user);
-  const snack = useSelector(store => store.snackBar);
-  const [validationError, setValidationError] = useState("");
-
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
@@ -39,16 +34,17 @@ export default function Submit() {
     console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Resetting form validation:
-    setValidationError("");
     // ⬇ Password validation:
-    if (userData.password !== userData.validation) {
-      setValidationError("* Your passwords must match to continue.");
+    if (!userData.email || !userData.userGroupId) {
+      // ⬇ Send the user to the first page:
+      history.push(`/details`);
+      // ⬇ Snackbar Alert to show failure:
+      dispatch({ type: 'GET_ERROR_SUBMIT' });
     } else {
-      // ⬇ Send the user to the next page:
-      history.push(`/usergroup`);
+      // ⬇ Send the user to the first page:
+      history.push(`/details`);
       // ⬇ Snackbar Alert to show success:
-      dispatch({ type: 'GET_SUCCESS_DETAILS' });
+      dispatch({ type: 'GET_SUCCESS_SUBMIT' });
     }
   } // End handleSubmit
   //#endregion ⬆⬆ Event handlers above. 

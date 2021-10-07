@@ -20,6 +20,20 @@ const snackReducer = (state = {
         severity: "success",
         variant: 'filled'
       }
+      case 'GET_ERROR_SUBMIT':
+        return {
+          open: true,
+          message: 'You must fill out the prior forms of the wizard to be able to Submit!  Please start again.',
+          severity: "error",
+          variant: 'filled'
+        }
+        case 'GET_SUCCESS_SUBMIT':
+          return {
+            open: true,
+            message: 'Congratulations!  You have successfully completed the wizard.  You may now close this window, or add another User Profile.',
+            severity: "success",
+            variant: 'filled'
+          }
     default:
       return state;
   }
