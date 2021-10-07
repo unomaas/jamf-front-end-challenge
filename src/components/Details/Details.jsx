@@ -8,7 +8,7 @@ import SideBar from '../SideBar/SideBar';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert } from '@mui/material';
+import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
 
 //#endregion ⬆⬆ All document setup above.
 
@@ -19,6 +19,7 @@ function Details() {
   const dispatch = useDispatch();
   const userData = useSelector(store => store.user);
   const snack = useSelector(store => store.snackBar);
+  const [validationError, setValidationError] = useState("");
 
   // ⬇ Run on page load:
   useEffect(() => {
@@ -45,13 +46,20 @@ function Details() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In Details handleSubmit');
+    console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Send the user to the next page:
-    history.push(`/usergroup`);
-    // ⬇ Snackbar Alert to show success:
-    dispatch({ type: 'GET_SUCCESS_NEXT_DETAILS' });
+    // ⬇ Resetting form validation:
+    setValidationError("");
+    // ⬇ Password validation:
+    if (userData.password !== userData.validation) {
+      setValidationError("* Your passwords must match to continue.");
+    } else {
+      // ⬇ Send the user to the next page:
+      history.push(`/usergroup`);
+      // ⬇ Snackbar Alert to show success:
+      dispatch({ type: 'GET_SUCCESS_DETAILS' });
+    }
   } // End handleSubmit
 
   /** ⬇ handleClose:
@@ -117,7 +125,7 @@ function Details() {
                         required
                         fullWidth
                         onChange={event => handleChange('email', event.target.value)}
-                        type="search"
+                        type="email"
                       />
                     </TableCell>
                   </TableRow>
@@ -157,6 +165,7 @@ function Details() {
                         onChange={event => handleChange('verify', event.target.value)}
                         type="password"
                       />
+                      <FormHelperText sx={{ color: 'red' }}>{validationError}</FormHelperText>
                     </TableCell>
                   </TableRow>
 

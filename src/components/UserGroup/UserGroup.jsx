@@ -57,12 +57,13 @@ export default function UserGroup() {
     setSelectError("");
     // ⬇ Form validation:
     if (userData.userGroupId == 0) {
-      setSelectError("Please select a User Group to continue.")
+      setSelectError("* Please select a User Group to continue.")
     } else {
       // ⬇ Send the user to the next page:
-      // history.push(`/submit`);
+      history.push(`/submit`);
+      // ⬇ Snackbar Alert to show success:
+      dispatch({ type: 'GET_SUCCESS_USERGROUPS' });
     } // End if/else statement
-
   } // End handleSubmit
 
   /** ⬇ handleClose:
@@ -80,7 +81,7 @@ export default function UserGroup() {
   return (
     <div className="Details-wrapper">
 
-      {/* Snackbar configures all of the info pop-ups required. */}
+      {/* ⬇ Snackbar configures all of the info pop-ups required. */}
       <Snackbar
         open={snack.open}
         autoHideDuration={6000}
@@ -115,6 +116,7 @@ export default function UserGroup() {
 
                   <TableRow>
                     <TableCell sx={{ borderBottom: "none" }}>
+
                       <Typography
                         variant="h6"
                         gutterBottom
@@ -137,6 +139,7 @@ export default function UserGroup() {
                           User Group to add the users to
                         </Typography>
                       </Typography>
+
                       <Select
                         onChange={event => handleChange('userGroupId', event.target.value)}
                         required
