@@ -6,7 +6,7 @@ Thanks for looking into my front-end challenge project, the 'Add New User Profil
 
 ## Description:
 
-This is a web based application that uses React to interact with a virtual server and database.  This challenge was given to me as a front-end assessment, and the objective was to follow three mock-ups and closely as possible, while still being able to improve on the UI/UX flow and overall feel of the application. 
+This is a web based application that uses React to interact with a virtual server and database.  This challenge was given to me as a front-end assessment, and the objective was to follow three mock-ups as closely as possible, while still being able to improve on the UI/UX flow and overall feel of the application. 
 
 The app functionality is meant to simulate a user using a wizard to create a new User Profile.  Throughout the wizard, they are asked to enter an email, choose a password and User Group, and then verify the information before submitting.  I added as many little Quality-of-Life features as I could, including but not limited to: Snackbar alerts for errors/successes; Password matching verification; Email formatting verification; Conditional rendering to re-use the buttons; Responsive screen-size design; A custom favicon logo; etc. 
 
