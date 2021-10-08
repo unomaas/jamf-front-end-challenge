@@ -32,7 +32,6 @@ export default function Submit() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
     // ⬇ For validation to make sure that the data exists for a proper submit (aka that they didn't refresh or come here via URL without doing the first two steps):

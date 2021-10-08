@@ -21,7 +21,6 @@ export default function Footer() {
    * When the user clicks Cancel, it will reset the userData reducer, send them to the landing page, and then tell them so. 
    */
   const handleCancel = () => {
-    console.log('In Footer handleCancel');
     // ⬇ Clears the userData reducer:
     dispatch({ type: "CLEAR_USER" });
     // ⬇ Sends the user back to the landing page:

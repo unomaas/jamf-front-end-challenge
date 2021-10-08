@@ -36,7 +36,6 @@ export default function UserGroup() {
    * When the user selects, this will set their input to the user object with keys for each field. 
    */
   const handleChange = (key, value) => {
-    console.log('In UserGroup handleChange, key/value:', key, value);
     // ⬇ Sends the keys/values to the estimate reducer object: 
     dispatch({
       type: 'SET_USER',
@@ -48,7 +47,6 @@ export default function UserGroup() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In UserGroup handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
     // ⬇ Resetting form validation:
