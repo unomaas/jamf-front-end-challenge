@@ -7,7 +7,9 @@ import SideBar from '../SideBar/SideBar';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableRow, FormHelperText } from '@mui/material';
+import { Grid, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableRow, FormHelperText, InputAdornment, IconButton } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -19,6 +21,8 @@ export default function Details() {
   const userData = useSelector(store => store.user);
   // ⬇ State variable to show a validation error for passwords: 
   const [validationError, setValidationError] = useState("");
+  // ⬇ State variable to show passwords or not: 
+  const [showPassword, setShowPassword] = useState(false);
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
@@ -116,7 +120,19 @@ export default function Details() {
                         required
                         fullWidth
                         onChange={event => handleChange('password', event.target.value)}
-                        type="password"
+                        // ⬇ Conditional rendering to show text or password, for accessibility on the verification process: 
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment:
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={event => setShowPassword(!showPassword)}
+                              >
+                                {/* ⬇ Conditional rendering to show Visible or Not Visible passwords, for accessibility: */}
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                            </InputAdornment>
+                        }}
                       />
                     </TableCell>
                   </TableRow>
@@ -135,7 +151,19 @@ export default function Details() {
                         required
                         fullWidth
                         onChange={event => handleChange('verify', event.target.value)}
-                        type="password"
+                        // ⬇ Conditional rendering to show text or password, for accessibility on the verification process: 
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment:
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={event => setShowPassword(!showPassword)}
+                              >
+                                {/* ⬇ Conditional rendering to show Visible or Not Visible passwords, for accessibility: */}
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                            </InputAdornment>
+                        }}
                       />
                       <FormHelperText sx={{ color: 'red' }}>{validationError}</FormHelperText>
                     </TableCell>
@@ -152,6 +180,6 @@ export default function Details() {
         </Grid>
       </form>
 
-    </div>
+    </div >
   ); // End return
 } // End Details

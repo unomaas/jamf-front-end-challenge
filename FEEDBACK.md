@@ -13,5 +13,3 @@ Hope you enjoy looking through my code, have a great day!
 Best,
 
 Ryan Maas
-612-559-1016
-rdmjobs@live.com
