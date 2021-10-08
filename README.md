@@ -1,4 +1,4 @@
-# Pack Me Up - Ryan's Solo Project
+# Add New User Profile Wizard - Ryan's Front-end Challenge Project
 
 Thanks for looking into my front-end challenge project, the 'Add New User Profile' wizard! 
 
