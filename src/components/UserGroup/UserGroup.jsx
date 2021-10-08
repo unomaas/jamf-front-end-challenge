@@ -3,14 +3,11 @@
 import './UserGroup.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
-import SnackbarManager from '../SnackbarManager/SnackbarManager';
-
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem, Snackbar, Alert, FormControl, FormHelperText } from '@mui/material';
-
+import { Grid, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem, FormHelperText } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -18,19 +15,19 @@ export default function UserGroup() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
+  // ⬇ Loads the User Groups dropdown options:
   const userGroups = useSelector(store => store.userGroups);
+  // ⬇ Loads the userData for form validation to make sure they can proceed:
   const userData = useSelector(store => store.user);
-  const snack = useSelector(store => store.snackBar);
+  // ⬇ State variable to show a validation error for selections: 
   const [selectError, setSelectError] = useState("");
-
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will get the User Group options from the DB:
     dispatch({ type: 'FETCH_USER_GROUPS' }),
       // ⬇ Will set the color of the sidebar circles to indicate the page:
       dispatch({ type: 'SET_SIDEBAR', payload: ['action', 'success', 'action'] })
-
-  }, []);
+  }, []); // ⬅ Run only once. 
   //#endregion ⬆⬆ All state variables above. 
 
 
@@ -56,7 +53,7 @@ export default function UserGroup() {
     event.preventDefault();
     // ⬇ Resetting form validation:
     setSelectError("");
-    // ⬇ Form validation:
+    // ⬇ Form validation to make sure they select an option:
     if (userData.userGroupId == 0) {
       setSelectError("* Please select a User Group to continue.")
     } else {
@@ -73,10 +70,9 @@ export default function UserGroup() {
     <div className="Details-wrapper">
 
       <form onSubmit={handleSubmit}>
-        <Grid
-          container
-        >
+        <Grid container>
 
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <SideBar />
 
           <Grid
@@ -137,10 +133,11 @@ export default function UserGroup() {
             </TableContainer>
           </Grid>
 
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <Footer />
 
         </Grid>
       </form>
     </div>
-  );
-}
+  ); // End return
+} // End UserGroup

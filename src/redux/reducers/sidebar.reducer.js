@@ -1,4 +1,4 @@
-// This reducer handles the state of the sidebar buttons, which indicate which page the user is on.  Action is grayed out, while Success is green. 
+// ⬇ This reducer handles the state of the sidebar buttons, which indicate which page the user is on.  Action is grayed out, while Success is green. 
 
 const sidebarReducer = (state = [
   "action",

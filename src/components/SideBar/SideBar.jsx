@@ -1,28 +1,20 @@
 //#region ⬇⬇ All document setup, below:
 // ⬇ File Imports: 
 import './SideBar.css';
-// ⬇ Dependent Functionality:
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { ToggleButtonGroup, ToggleButton, Stack, Chip, Typography, Grid, SvgIcon, Box, Container, Avatar, TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
+// ⬇ Dependent Functionality:
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Typography, Grid, Avatar, TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
 export default function SideBar() {
   //#region ⬇⬇ All state variables below:
+  // ⬇ State variable which will change the color to indicate which step the user is on:
   const circleColor = useSelector(store => store.sidebar);
-  // ⬇ Run on page load:
-  // useEffect(() => {
-  //   dispatch({ type: 'SET_BUTTON_STATE', payload: 'create' }),
-  //     // Fetches and set all fields for dropdown menus
-  //     dispatch({ type: 'FETCH_FIELD_SELECT' })
-  // }, []);
   //#endregion ⬆⬆ All state variables above. 
 
-  //#region ⬇⬇ Event handlers below:
-  //#endregion ⬆⬆ Event handles above. 
 
   // ⬇ Rendering:
   return (
@@ -95,5 +87,5 @@ export default function SideBar() {
       </div>
 
     </Grid>
-  )
-}
+  ) // End return
+} // End SideBar

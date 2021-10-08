@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+//#region ⬇⬇ All document setup, below:
+// ⬇ File Imports: 
 import './Footer.css';
+// ⬇ Dependent Functionality:
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, AppBar, Toolbar } from '@mui/material';
+import { Button, Table, TableBody, TableCell, TableContainer, TableRow, AppBar, Toolbar } from '@mui/material';
+//#endregion ⬆⬆ All document setup above.
 
 
 export default function Footer() {
@@ -13,17 +16,20 @@ export default function Footer() {
   const sidebarState = useSelector(store => store.sidebar);
   //#endregion ⬆⬆ All state variables above. 
 
+  //#region ⬇⬇ Event handlers below:
+  /** ⬇ handleCancel:
+   * When the user clicks Cancel, it will reset the userData reducer, send them to the landing page, and then tell them so. 
+   */
   const handleCancel = () => {
-    console.log('In handleChange');
-    // ⬇ Clears the user data reducer:
+    console.log('In Footer handleCancel');
+    // ⬇ Clears the userData reducer:
     dispatch({ type: "CLEAR_USER" });
     // ⬇ Sends the user back to the landing page:
     history.push(`/details`);
     // ⬇ Snackbar Alert to show success:
     dispatch({ type: 'GET_SUCCESS_CANCEL' });
-  } // End handleChange
+  } // End handleCancel
 
-  console.log(sidebarState[2]);
   return (
     <>
       <AppBar

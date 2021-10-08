@@ -3,13 +3,11 @@
 import './Details.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
-import SnackbarManager from '../SnackbarManager/SnackbarManager';
-
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow, Snackbar, Alert, FormHelperText } from '@mui/material';
+import { Grid, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableRow, FormHelperText } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
@@ -17,21 +15,21 @@ export default function Details() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
+  // ⬇ Pulling in the userData reducer from the Redux store:
   const userData = useSelector(store => store.user);
-  const snack = useSelector(store => store.snackBar);
+  // ⬇ State variable to show a validation error for passwords: 
   const [validationError, setValidationError] = useState("");
-
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
     dispatch({ type: 'SET_SIDEBAR', payload: ['success', 'action', 'action'] })
-  }, []);
+  }, []); // ⬅ Run only once. 
   //#endregion ⬆⬆ All state variables above. 
 
 
   //#region ⬇⬇ Event handlers below:
   /** ⬇ handleChange:
-   * When the user types, this will set their input to the user object with keys for each field. 
+   * When the user types, this will set their input to the userData object with keys for each field. 
    */
   const handleChange = (key, value) => {
     console.log('In Details handleChange, key/value:', key, value);
@@ -51,15 +49,16 @@ export default function Details() {
     event.preventDefault();
     // ⬇ Resetting form validation:
     setValidationError("");
-    // ⬇ Password validation:
+    // ⬇ Password validation to ensure passwords match:
     if (userData.password !== userData.verify) {
+      // ⬇ If they don't match, show this error:
       setValidationError("* Your passwords must match to continue.");
     } else {
-      // ⬇ Send the user to the next page:
+      // ⬇ If they do match, send the user to the next page:
       history.push(`/usergroup`);
       // ⬇ Snackbar Alert to show success:
       dispatch({ type: 'GET_SUCCESS_DETAILS' });
-    }
+    } // End if/else validation. 
   } // End handleSubmit
   //#endregion ⬆⬆ Event handlers above. 
 
@@ -69,10 +68,9 @@ export default function Details() {
     <div className="Details-wrapper">
 
       <form onSubmit={handleSubmit}>
-        <Grid
-          container
-        >
+        <Grid container>
 
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <SideBar />
 
           <Grid
@@ -148,11 +146,12 @@ export default function Details() {
             </TableContainer>
           </Grid>
 
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <Footer />
 
         </Grid>
       </form>
 
     </div>
-  );
-}
+  ); // End return
+} // End Details

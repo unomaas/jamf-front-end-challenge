@@ -1,6 +1,10 @@
+// *** The Snackbar Manager is a component that lets us use Material-UI Snackbar Alerts throughout the entire app.  It requires having a snack.reducer.js to call out to, and having the Snackbar Manager loaded into the highest level of your app (for less redundancy.) ***
+
+//#region ⬇⬇ All document setup, below:
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Snackbar, Alert, Slide } from '@mui/material';
+import { Snackbar, Alert } from '@mui/material';
+//#endregion ⬆⬆ All document setup above.
 
 
 export default function SnackbarManager() {
@@ -9,11 +13,11 @@ export default function SnackbarManager() {
   const snack = useSelector(store => store.snackBar);
   //#endregion ⬆⬆ All state variables above. 
 
-
+  
   //#region ⬇⬇ Event handlers below:
   /** ⬇ handleClose:
- * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
- */
+   * Functionality event handler for the MUI Snackbar, this will close the pop-up notification. 
+   */
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;

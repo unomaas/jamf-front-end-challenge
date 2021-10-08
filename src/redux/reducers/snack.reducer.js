@@ -1,3 +1,5 @@
+// ⬇ This reducer handles the MUI Snackbar Alerts, colors, messages, etc.  It is *REQUIRED* for us to run the SnackbarManager component loaded into App.jsx.
+
 const snackReducer = (state = {
   open: false,
   message: '',
@@ -43,7 +45,8 @@ const snackReducer = (state = {
       }
     default:
       return state;
-  }
-};
+  } // End switch
+}; // End snackReducer
+
 
 export default snackReducer;
