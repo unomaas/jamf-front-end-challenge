@@ -9,6 +9,7 @@ import SideBar from '../SideBar/SideBar';
 import Footer from '../Footer/Footer';
 import UserGroup from '../UserGroup/UserGroup';
 import Submit from '../Submit/Submit';
+import SnackbarManager from '../SnackbarManager/SnackbarManager';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
     <Router>
       {/* <Grid container className="App-wrapper"> */}
       <div className="App-wrapper">
+
+        {/* Snackbar configures all of the info pop-ups required. */}
+        <SnackbarManager />
 
         <Header />
 

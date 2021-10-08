@@ -72,9 +72,6 @@ export default function UserGroup() {
   return (
     <div className="Details-wrapper">
 
-      {/* ⬇ Snackbar configures all of the info pop-ups required. */}
-      <SnackbarManager />
-
       <form onSubmit={handleSubmit}>
         <Grid
           container
