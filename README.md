@@ -1,121 +1,82 @@
+# Add New User Profile Wizard - Ryan's Front-end Challenge Project
 
-# EDA Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
-
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
-
-## Use the Template for This Repository (Don't Clone)
-
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
+Thanks for looking into my front-end challenge project, the 'Add New User Profile' wizard! 
 
 
-## Prerequisites
 
-Before you get started, make sure you have the following software installed on your computer:
+## Description:
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+This is a web based application that uses React to interact with a virtual server and database.  This challenge was given to me as a front-end assessment, and the objective was to follow three mock-ups as closely as possible, while still being able to improve on the UI/UX flow and overall feel of the application. 
 
-## Create database and table
+The app functionality is meant to simulate a user using a wizard to create a new User Profile.  Throughout the wizard, they are asked to enter an email, choose a password and User Group, and then verify the information before submitting.  I added as many little Quality-of-Life features as I could, including but not limited to: Snackbar alerts for errors/successes; Password matching verification; Email formatting verification; Conditional rendering to re-use the buttons; Responsive screen-size design; A custom favicon logo; etc. 
 
-Create a new database called `prime_app` and create a `user` table:
+To view the instructions I was given, and compare them to my build, please use the following links:
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+- Instructions: https://i.imgur.com/id5tOX5.png
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+- Mock-up Page #1: https://i.imgur.com/HHDSgCv.png 
 
-## Development Setup Instructions
+- Mock-up Page #2: https://i.imgur.com/fl605qJ.png  
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+- Mock-up Page #3: https://imgur.com/HHDSgCv 
 
-## Debugging
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+## Prerequisites:
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+- Node.js: https://nodejs.org/en/
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
+- PostgreSQL: https://www.postgresql.org/
 
-## Testing Routes with Postman
 
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
 
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
+## Installation:
 
-1. Start the server - `npm run server`
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
+To run this program, you will need to:
 
-After running the login route above, you can try any other route you've created that requires a logged in user!
+- [] Build the database in your SQL server with the code in "database.sql" file. 
 
-## Production Build
+- [] Run 'npm install' in your terminal to install the dependencies.
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
+- [] Run 'npm run server' in one terminal, and 'npm run client' in another terminal.
 
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
 
-## Lay of the Land
 
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
+## Usage:
 
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
+- #1. To use this app, start the server and client in your terminal.  React will navigate to http://localhost:3000/ in your browser.  
 
-Directory Structure:
+- #2. The app will require the user to enter an email, password, and verify the password.  There is form validation on both having the email formatted correctly, and the passwords must match.  The user will press Next to proceed. 
 
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
+- #3. The next page will require the user to select a User Group to be added to.  The User Group options are populated from a virtual server via a GET request, and .mapped to the drop-down menu.  There is form validation on selecting an appropriate User Group.  The user will press Next to proceed. 
 
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
+- #4. The next page will have the user verify the information they entered on the prior two steps, by showing them their email and selected User Group, both of which are read-only.  There is form validation to make sure that the user has done both of those steps before being able to Submit.  The user will press Submit to proceed. 
 
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
+- #5. That's it!  The user will see a success verification if they followed the steps appropriately, or they will be shown an error message if they did not.  At any point, the user can press Cancel to have the wizard reset and start over.  
 
-## Deployment
 
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
 
-## Update Documentation
+### Accessibility: 
 
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+I strive to make my apps accessible to all!  
+
+This specific app has all of the images alt text appropriately recorded for text readers. 
+
+I would love to incorporate my standard dyslexia-enabled font, OpenDyslexia -- however, this challenge was set to specifically imitate the mock-ups provided, so I chose not to incorporate that to adhere closer to the rules. 
+
+
+### Built With:
+
+JavaScript/HTML/CSS, React, Redux, Redux Saga, React Router, Passport, Node.js, Express, SQL, Material-UI, Axios, PG. 
+
+
+
+### Acknowledgement:
+
+I'd like to give thanks to Dane Smith, and everyone in Prime Academy's Genocchi cohort for teaching me everything at Prime Digital Academy!  I wouldn't be here today without them.  
+ 
+
+
+### Support:
+
+If you have suggestions, comments, or issues, please contact me at rdmjobs@live.com.  Thanks for reviewing my project!  Stay wonderful. <3

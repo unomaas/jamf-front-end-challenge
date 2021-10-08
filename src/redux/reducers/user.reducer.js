@@ -1,3 +1,5 @@
+// ⬇ This reducer handles the data storage for everything the user enters and will display it on the Submit page:
+
 const userReducer = (state = {
   userGroupId: 0,
 }, action) => {
@@ -8,12 +10,13 @@ const userReducer = (state = {
         [action.payload.key]: action.payload.value
       }
     case 'CLEAR_USER':
-      return {};
+      return {
+        userGroupId: 0,
+      };
     default:
       return state;
   } // End switch
 }; // End userReducer
 
-// user will be on the redux state at:
-// state.user
+// ⬇ User will be on the redux state at: state.user
 export default userReducer;

@@ -1,16 +1,12 @@
 .SideBar-wrapper {
-  /* width: 55vw !important; */
   min-width: 240px;
-  /* max-width: 300px; */
   min-height: calc(100vh - 80px);
-  /* min-height: -webkit-fill-available; */
   background-image: url("./side-background.png");
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 .SideBar-content {
-  /* height: 1px; */
   padding-top: 2.5em;
 }
 

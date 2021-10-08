@@ -1,76 +1,64 @@
 //#region ⬇⬇ All document setup, below:
 // ⬇ File Imports: 
-import './UserGroup.css';
+import './Submit.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
 // ⬇ Dependent Functionality:
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem, FormHelperText } from '@mui/material';
+import { Grid, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableRow, Select, MenuItem } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
-export default function UserGroup() {
+export default function Submit() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
   // ⬇ Loads the User Groups dropdown options:
   const userGroups = useSelector(store => store.userGroups);
-  // ⬇ Loads the userData for form validation to make sure they can proceed:
+  // ⬇ Loads the userData for form validation to make sure they can Submit:
   const userData = useSelector(store => store.user);
-  // ⬇ State variable to show a validation error for selections: 
-  const [selectError, setSelectError] = useState("");
   // ⬇ Run on page load:
   useEffect(() => {
-    // ⬇ Will get the User Group options from the DB:
-    dispatch({ type: 'FETCH_USER_GROUPS' }),
-      // ⬇ Will set the color of the sidebar circles to indicate the page:
-      dispatch({ type: 'SET_SIDEBAR', payload: ['action', 'success', 'action'] })
+    // ⬇ Will set the color of the sidebar circles to indicate the page:
+    dispatch({ type: 'SET_SIDEBAR', payload: ['action', 'action', 'success'] })
   }, []); // ⬅ Run only once. 
   //#endregion ⬆⬆ All state variables above. 
 
 
   //#region ⬇⬇ Event handlers below:
-  /** ⬇ handleChange:
-   * When the user selects, this will set their input to the user object with keys for each field. 
-   */
-  const handleChange = (key, value) => {
-    console.log('In UserGroup handleChange, key/value:', key, value);
-    // ⬇ Sends the keys/values to the estimate reducer object: 
-    dispatch({
-      type: 'SET_USER',
-      payload: { key: key, value: value }
-    });
-  } // End handleChange
-
   /** ⬇ handleSubmit:
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In UserGroup handleSubmit', userData);
+    console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Resetting form validation:
-    setSelectError("");
-    // ⬇ Form validation to make sure they select an option:
-    if (userData.userGroupId == 0) {
-      setSelectError("* Please select a User Group to continue.")
+    // ⬇ For validation to make sure that the data exists for a proper submit (aka that they didn't refresh or come here via URL without doing the first two steps):
+    if (!userData.email || !userData.userGroupId) {
+      // ⬇ Send the user to the first page:
+      history.push(`/details`);
+      // ⬇ Snackbar Alert to show failure:
+      dispatch({ type: 'GET_ERROR_SUBMIT' });
     } else {
-      // ⬇ Send the user to the next page:
-      history.push(`/submit`);
+      // ⬇ Send the user to the first page:
+      history.push(`/details`);
       // ⬇ Snackbar Alert to show success:
-      dispatch({ type: 'GET_SUCCESS_USERGROUPS' });
-    } // End if/else statement
+      dispatch({ type: 'GET_SUCCESS_SUBMIT' });
+    }
   } // End handleSubmit
   //#endregion ⬆⬆ Event handlers above. 
+
 
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
 
       <form onSubmit={handleSubmit}>
-        <Grid container>
+        <Grid
+          container
+        >
 
           {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <SideBar />
@@ -87,46 +75,47 @@ export default function UserGroup() {
 
                   <TableRow>
                     <TableCell sx={{ borderBottom: "none" }}>
-
-                      <Typography
-                        variant="h6"
-                        gutterBottom
-                        sx={{ fontWeight: '400' }}
-                      >
-                        Choose the User Group
-                      </Typography>
-
                       <Typography
                         variant="subtitle2"
                         gutterBottom
                         className="Details-input"
+                        sx={{ color: "gray" }}
+                      >
+                        EMAIL
+                      </Typography>
+                      <TextField
+                        value={userData.email}
+                        required
+                        fullWidth
+                        type="email"
+                        disabled
+                      />
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        className="Details-input"
+                        sx={{ color: "gray" }}
                       >
                         USER GROUP
-                        &nbsp;&nbsp;&nbsp;
-                        <Typography
-                          variant="caption"
-                          sx={{ color: 'gray', fontSize: ".9em" }}
-                        >
-                          User Group to add the users to
-                        </Typography>
                       </Typography>
-
                       <Select
-                        onChange={event => handleChange('userGroupId', event.target.value)}
                         required
                         fullWidth
                         value={userData.userGroupId}
+                        disabled
                       >
                         <MenuItem key="0" value="0">None</MenuItem>
                         {userGroups?.map(group => {
                           return (<MenuItem key={group?.id} value={group?.id}>{group?.name}</MenuItem>)
                         })}
                       </Select>
-                      <FormHelperText sx={{ color: 'red' }}>{selectError}</FormHelperText>
-
                     </TableCell>
                   </TableRow>
-
 
                 </TableBody>
               </Table>
@@ -138,6 +127,7 @@ export default function UserGroup() {
 
         </Grid>
       </form>
+
     </div>
   ); // End return
-} // End UserGroup
+} // End Submit

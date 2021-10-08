@@ -1,33 +1,33 @@
-import React, { useEffect } from 'react';
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+//#region ⬇⬇ All document setup, below:
+// ⬇ File Imports: 
+import './App.css';
 import Header from '../Header/Header';
 import Details from '../Details/Details';
-import './App.css';
-import { Grid } from '@mui/material';
-import SideBar from '../SideBar/SideBar';
-import Footer from '../Footer/Footer';
 import UserGroup from '../UserGroup/UserGroup';
+import Submit from '../Submit/Submit';
+import SnackbarManager from '../SnackbarManager/SnackbarManager';
+// ⬇ Dependent Functionality:
+import React from 'react';
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+//#endregion ⬆⬆ All document setup above.
 
 
-function App() {
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch({ type: 'FETCH_USER' });
-  // }, [dispatch]);
-
+export default function App() {
+  // ⬇ Rendering:
   return (
     <Router>
-      {/* <Grid container className="App-wrapper"> */}
       <div className="App-wrapper">
+
+        {/* Snackbar configures all of the info pop-ups required. */}
+        <SnackbarManager />
 
         <Header />
 
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+          {/* Visiting localhost:3000 will redirect to localhost:3000/details: */}
           <Redirect exact from="/" to="/details" />
 
+          {/* All routes are unprotected (aka, no login required to view): */}
           <Route
             exact
             path="/details"
@@ -42,7 +42,14 @@ function App() {
             <UserGroup />
           </Route>
 
-          {/* If none of the other routes matched, we will show a 404. */}
+          <Route
+            exact
+            path="/submit"
+          >
+            <Submit />
+          </Route>
+
+          {/* If none of the other routes matched, we show a 404: */}
           <Route>
             <h1>404 - Please go back and try a different URL.</h1>
           </Route>
@@ -50,7 +57,5 @@ function App() {
 
       </div>
     </Router>
-  );
-}
-
-export default App;
+  ); // End return
+} // End App

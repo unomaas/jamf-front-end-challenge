@@ -3,35 +3,36 @@
 import './Details.css';
 import Footer from '../Footer/Footer';
 import SideBar from '../SideBar/SideBar';
-
 // ⬇ Dependent Functionality:
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Grid, TextField, Typography, Button, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
-
+import { Grid, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableRow, FormHelperText } from '@mui/material';
 //#endregion ⬆⬆ All document setup above.
 
 
-function Details() {
+export default function Details() {
   //#region ⬇⬇ All state variables below:
   const history = useHistory();
   const dispatch = useDispatch();
+  // ⬇ Pulling in the userData reducer from the Redux store:
   const userData = useSelector(store => store.user);
+  // ⬇ State variable to show a validation error for passwords: 
+  const [validationError, setValidationError] = useState("");
   // ⬇ Run on page load:
   useEffect(() => {
     // ⬇ Will set the color of the sidebar circles to indicate the page:
     dispatch({ type: 'SET_SIDEBAR', payload: ['success', 'action', 'action'] })
-  }, []);
+  }, []); // ⬅ Run only once. 
   //#endregion ⬆⬆ All state variables above. 
 
 
   //#region ⬇⬇ Event handlers below:
   /** ⬇ handleChange:
-   * When the user types, this will set their input to the user object with keys for each field. 
+   * When the user types, this will set their input to the userData object with keys for each field. 
    */
   const handleChange = (key, value) => {
-    console.log('In handleChange, key/value:', key, value);
+    console.log('In Details handleChange, key/value:', key, value);
     // ⬇ Sends the keys/values to the estimate reducer object: 
     dispatch({
       type: 'SET_USER',
@@ -43,11 +44,21 @@ function Details() {
    * When clicked, this will post the object to the DB and send the user back to the dashboard. 
    */
   const handleSubmit = event => {
-    console.log('In Details handleSubmit');
+    console.log('In Details handleSubmit', userData);
     // ⬇ Don't refresh until submit:
     event.preventDefault();
-    // ⬇ Send the user to the next page:
-    history.push(`/usergroup`);
+    // ⬇ Resetting form validation:
+    setValidationError("");
+    // ⬇ Password validation to ensure passwords match:
+    if (userData.password !== userData.verify) {
+      // ⬇ If they don't match, show this error:
+      setValidationError("* Your passwords must match to continue.");
+    } else {
+      // ⬇ If they do match, send the user to the next page:
+      history.push(`/usergroup`);
+      // ⬇ Snackbar Alert to show success:
+      dispatch({ type: 'GET_SUCCESS_DETAILS' });
+    } // End if/else validation. 
   } // End handleSubmit
   //#endregion ⬆⬆ Event handlers above. 
 
@@ -55,16 +66,16 @@ function Details() {
   // ⬇ Rendering:
   return (
     <div className="Details-wrapper">
-      <form onSubmit={handleSubmit}>
-        <Grid
-          container
-        >
 
+      <form onSubmit={handleSubmit}>
+        <Grid container>
+
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <SideBar />
 
-          <Grid 
-            className="Details-content" 
-            item 
+          <Grid
+            className="Details-content"
+            item
             xs={7}
           >
 
@@ -86,7 +97,7 @@ function Details() {
                         required
                         fullWidth
                         onChange={event => handleChange('email', event.target.value)}
-                        type="search"
+                        type="email"
                       />
                     </TableCell>
                   </TableRow>
@@ -126,6 +137,7 @@ function Details() {
                         onChange={event => handleChange('verify', event.target.value)}
                         type="password"
                       />
+                      <FormHelperText sx={{ color: 'red' }}>{validationError}</FormHelperText>
                     </TableCell>
                   </TableRow>
 
@@ -134,12 +146,12 @@ function Details() {
             </TableContainer>
           </Grid>
 
+          {/* ⬇ We load this inside the component to maintain spacing/responsiveness: */}
           <Footer />
 
         </Grid>
       </form>
-    </div>
-  );
-}
 
-export default Details;
+    </div>
+  ); // End return
+} // End Details
