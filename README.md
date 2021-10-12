@@ -18,7 +18,7 @@ To view the instructions I was given, and compare them to my build, please use t
 
 - Mock-up Page #2: https://i.imgur.com/fl605qJ.png  
 
-- Mock-up Page #3: https://imgur.com/HHDSgCv 
+- Mock-up Page #3: https://imgur.com/HHDSgCv.png 
 
 
 
